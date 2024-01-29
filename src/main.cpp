@@ -1,27 +1,47 @@
 #include <iostream>
 #include <string.h>
-#include <stdio.h>
 #include <ncurses.h>
+#include <signal.h>
+
+static void finish(int sig);
 
 int main(void)
 {
- //   WINDOW *boite;
+    int num = 0;
 
-    const char *msg = "Texte au centre";
-    int taille = strlen(msg);
-
+    signal(SIGINT, finish);
     initscr();
-    while(1) {
-        clear();
-        mvprintw(LINES/2, COLS/2 - taille/2, "%s", msg);
-        refresh();
-        if (getch() != 410)
-            break;
+    keypad(stdscr, TRUE);
+    nonl();
+    cbreak();
+    echo();
+
+    if(has_colors())
+    {
+        start_color();
+
+        init_pair(1, COLOR_RED,     COLOR_BLACK);
+        init_pair(2, COLOR_GREEN,   COLOR_BLACK);
+        init_pair(3, COLOR_YELLOW,  COLOR_BLACK);
+        init_pair(4, COLOR_BLUE,    COLOR_BLACK);
+        init_pair(5, COLOR_CYAN,    COLOR_BLACK);
+        init_pair(6, COLOR_MAGENTA, COLOR_BLACK);
+        init_pair(7, COLOR_WHITE,   COLOR_BLACK);
     }
+    for (;;)
+    {
+        getch();
+        attrset(COLOR_PAIR(num%8));
+        num++;
+    }
+    finish(0);
+}
+
+static void finish(int sig) {
 
     endwin();
 
  //   free(boite);
 
-    return 0;
+    exit (sig);
 }
