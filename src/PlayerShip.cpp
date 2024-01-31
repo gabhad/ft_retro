@@ -1,14 +1,15 @@
 #include "PlayerShip.hpp"
 
-        PlayerShip::PlayerShip(void) {}
-        PlayerShip::PlayerShip(const PlayerShip &p) {}
-        PlayerShip &PlayerShip::operator=(const PlayerShip &p) {}
+PlayerShip::PlayerShip(void) {}
+PlayerShip::PlayerShip(const PlayerShip &s)
+{
+    this->health = s.health; // XXX a corriger
+}
 
-        void PlayerShip::shoot(void) {}
+PlayerShip &PlayerShip::operator=(const PlayerShip &p) 
+{
+    this->health = p.health; // XXX a corriger
+    return *this;
+}
 
-        void PlayerShip::gets_damage(int dmg) {
-            this->health -= dmg;
-            if (this->health <= 0) {
-                // XXX definir game over
-            }
-        }
+void PlayerShip::dies() {}

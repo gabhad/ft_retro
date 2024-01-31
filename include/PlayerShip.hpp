@@ -8,8 +8,6 @@
 class PlayerShip : public Ship {
     private:
         std::string name;
-        int         health;
-        Weapon      weap;
 
     public:
         PlayerShip(void);
@@ -18,8 +16,7 @@ class PlayerShip : public Ship {
 
         ~PlayerShip();
 
-        void    shoot(void);
-        void    gets_damage(int dmg);
+        void    dies();
 };
 
 #endif

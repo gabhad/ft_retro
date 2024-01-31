@@ -11,6 +11,8 @@ private:
 public:
     Missile(/* args */);
     ~Missile();
+
+    void    dealsDamage(int dmg);
 };
 
 
