@@ -1,15 +1,27 @@
 #include "PlayerShip.hpp"
 
-PlayerShip::PlayerShip(void) {}
-PlayerShip::PlayerShip(const PlayerShip &s)
+PlayerShip::PlayerShip(void)
 {
-    this->health = s.health; // XXX a corriger
+    this->health = 100;
+    this->name = "Toto";
+}
+
+PlayerShip::PlayerShip(const PlayerShip &s) : Ship(s)
+{
+    this->health = s.health;
+    this->name = s.name; // XXX a corriger
 }
 
 PlayerShip &PlayerShip::operator=(const PlayerShip &p) 
 {
-    this->health = p.health; // XXX a corriger
+    if (this != &p) {
+        this->health = p.health;
+        this->name = p.name;
+    } // XXX a corriger
     return *this;
 }
 
-void PlayerShip::dies() {}
+void PlayerShip::dies() 
+{
+    
+}

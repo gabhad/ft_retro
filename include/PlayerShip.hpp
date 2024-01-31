@@ -19,4 +19,4 @@ class PlayerShip : public Ship {
         void    dies();
 };
 
-#endif
+#endif // PLAYER_SHIP_H

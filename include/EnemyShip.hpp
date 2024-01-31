@@ -10,6 +10,8 @@ private:
 public:
     EnemyShip(/* args */);
     ~EnemyShip();
+
+    void    dies(void);
 };
 
 

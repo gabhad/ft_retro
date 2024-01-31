@@ -11,7 +11,7 @@ protected:
 
 public:
     Ship();
-    Ship(Ship &s);
+    Ship(const Ship &s);
     Ship &operator=(const Ship &p);
 
     ~Ship();
@@ -19,7 +19,7 @@ public:
     void            changesWeapon(Weapon newWeap);
     void            shootsMissile(void);
     void            getsDamage(int dmg);
-    virtual void    dies(void);
+    virtual void    dies(void) = 0;
 };
 
 

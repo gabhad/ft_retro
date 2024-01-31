@@ -4,15 +4,18 @@ Ship::Ship()
 {
 }
 
-Ship::Ship(Ship &s)
+Ship::Ship(const Ship &s) : health(s.health), weap(s.weap) 
 {
-    this->health = s.health; // XXX a corriger
+     // XXX a corriger
 }
 
-Ship &Ship::operator=(const Ship &p)
+Ship &Ship::operator=(const Ship &s)
 {
-    this->health = p.health; // XXX a corriger
-    return *this; 
+    if (this != &s) {
+        this->health = s.health;
+        this->weap = s.weap; // XXX a corriger si Weapon a besoin d'une logique de copie
+    }
+    return *this;
 }
 
 Ship::~Ship()
