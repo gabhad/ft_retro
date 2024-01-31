@@ -1,13 +1,18 @@
-#ifndef WEAPON_HPP
-    #define WEAPON_HPP
+#ifndef WEAPON_H
+    #define WEAPON_H
 
-class   Weapon
+class Weapon
 {
-    private:
+private:
         int damage;
+        int ammo;
 
-    public:
-        void    shoots(void);
+public:
+    Weapon(/* args */);
+    ~Weapon();
+
+    void    shoots(void);
+
 };
 
 #endif

@@ -3,8 +3,9 @@
 
 #include <string>
 #include "Weapon.hpp"
+#include "Ship.hpp"
 
-class PlayerShip {
+class PlayerShip : public Ship {
     private:
         std::string name;
         int         health;

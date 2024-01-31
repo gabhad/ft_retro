@@ -1,5 +1,6 @@
 #include <string.h>
 #include "ft_retro.hpp"
+#include <stdlib.h>
 
 void    launch_screen3() {
     const char  *msg = "Déplacez vous avec les flèches GAUCHE et DROITE";
@@ -21,8 +22,10 @@ void    launch_screen3() {
         mvprintw(LINES/2 + 4, COLS/2 - taille4/2, "%s", msg4);
         refresh();
         if(getch() != 410)
-            start_game();
+            break;
     }
+    clear();
+    start_game();
 }
 
 void    launch_screen2() {
@@ -48,8 +51,10 @@ void    launch_screen2() {
         mvprintw(LINES/2 + 4, COLS/2 - 11, "Appuyez sur une touche");
         refresh();
         if(getch() != 410)
-            launch_screen3();
+            break;
     }
+    clear();
+    launch_screen3();
 }
 
 void    launch_screen() {
@@ -63,8 +68,10 @@ void    launch_screen() {
         mvprintw(LINES/2 + 3, COLS/2 - 11, "Appuyez sur une touche");
         refresh();  
         if(getch() != 410)
-            launch_screen2();
+            break;
     }
+    clear();
+    launch_screen2();
 }
 
 void    check_term_size() {
