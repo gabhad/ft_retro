@@ -8,6 +8,9 @@ EnemyShip::~EnemyShip()
 {
 }
 
+void    EnemyShip::moveLeft(void) {}
+void    EnemyShip::moveRight(void) {}
+
 void EnemyShip::dies()
 {
     

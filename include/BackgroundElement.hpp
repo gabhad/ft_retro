@@ -1,5 +1,5 @@
-#ifndef BACKGROUND_ELEMENT
-    #define BACKGROUND_ELEMENT
+#ifndef BACKGROUND_ELEMENT_HPP
+# define BACKGROUND_ELEMENT_HPP
 
 class BackgroundElement
 {

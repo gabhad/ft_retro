@@ -8,7 +8,7 @@ private:
         int ammo;
 
 public:
-    Weapon(/* args */);
+    Weapon();
     ~Weapon();
 
     void    shoots(void);

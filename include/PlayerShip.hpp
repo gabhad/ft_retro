@@ -1,5 +1,5 @@
-#ifndef PLAYER_SHIP_H
-    #define PLAYER_SHIP_H
+#ifndef PLAYER_SHIP_HPP
+# define PLAYER_SHIP_HPP
 
 #include <string>
 #include "Weapon.hpp"
@@ -7,7 +7,9 @@
 
 class PlayerShip : public Ship {
     private:
-        std::string name;
+        std::string name1 = "^ /\\ ^";
+        std::string name2 = "| ll |";
+        std::string name3 = "vv";
 
     public:
         PlayerShip(void);
@@ -16,7 +18,9 @@ class PlayerShip : public Ship {
 
         ~PlayerShip();
 
-        void    dies();
+        void    moveLeft(void);
+        void    moveRight(void);
+        void    dies(void);
 };
 
 #endif // PLAYER_SHIP_H

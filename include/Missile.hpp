@@ -1,5 +1,5 @@
 #ifndef MISSILE_HPP
-    #define MISSILE_HPP
+# define MISSILE_HPP
 
 #include <string>
 

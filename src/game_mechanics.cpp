@@ -9,8 +9,8 @@ void    start_game(void) {
 
     GameEntity *Game = new GameEntity(ath, gameScreen);
 
-    delete ath;
-    delete gameScreen;
-    delete Game;
     clear();
+    delwin(ath) ;
+    delwin(gameScreen);
+    delete Game;
 }

@@ -1,16 +1,21 @@
-#ifndef ENEMY_SHIP_H
-    #define ENEMY_SHIP_H
+#ifndef ENEMY_SHIP_HPP
+# define ENEMY_SHIP_HPP
 
 #include "Ship.hpp"
+#include <string>
 
 class EnemyShip : public Ship
 {
 private:
-    /* data */
+    std::string name1 = "u-u";
+    std::string name2 = "|o|";
+    std::string name3 = "v v";
 public:
-    EnemyShip(/* args */);
+    EnemyShip();
     ~EnemyShip();
 
+    void    moveLeft(void);
+    void    moveRight(void);
     void    dies(void);
 };
 

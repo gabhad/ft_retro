@@ -20,8 +20,8 @@ public:
     void            changesWeapon(Weapon newWeap);
     void            shootsMissile(void);
     void            getsDamage(int dmg);
-    void            moveLeft(void);
-    void            moveRight(void);
+    virtual void    moveLeft(void) = 0;
+    virtual void    moveRight(void) = 0;
     virtual void    dies(void) = 0;
 };
 
