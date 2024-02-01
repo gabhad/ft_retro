@@ -6,8 +6,9 @@
 class Ship
 {
 protected:
-    int health;
-    Weapon weap;
+    int     health;
+    Weapon  weap;
+    int     position;
 
 public:
     Ship();
@@ -19,6 +20,8 @@ public:
     void            changesWeapon(Weapon newWeap);
     void            shootsMissile(void);
     void            getsDamage(int dmg);
+    void            moveLeft(void);
+    void            moveRight(void);
     virtual void    dies(void) = 0;
 };
 

@@ -39,3 +39,5 @@ void    Ship::getsDamage(int dmg)
         dies();
 }
 
+void    Ship::moveLeft(void){} 
+void    Ship::moveRight(void){}
