@@ -1,9 +1,9 @@
-#ifndef WEAPON_H
-    #define WEAPON_H
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
 class Weapon
 {
-private:
+protected:
         int damage;
         int ammo;
 
@@ -11,8 +11,9 @@ public:
     Weapon();
     ~Weapon();
 
-    void    shoots(void);
+    virtual void    shoots(void) = 0;
 
 };
 
 #endif
+

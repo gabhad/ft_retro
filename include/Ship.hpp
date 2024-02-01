@@ -6,9 +6,9 @@
 class Ship
 {
 protected:
-    int     health;
-    Weapon  weap;
-    int     position;
+    int         health;
+    Weapon      weap;
+    int         position;
 
 public:
     Ship();

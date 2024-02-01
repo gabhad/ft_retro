@@ -3,12 +3,13 @@
 
 #include "Weapon.hpp"
 
-class DefaultWeapon : public Weapon
+class DefaultWeapon : public IWeapon
 {
 private:
-    /* data */
+    int damage = 1;
+    int ammo = -1;
 public:
-    DefaultWeapon(/* args */);
+    DefaultWeapon();
     ~DefaultWeapon();
 };
 

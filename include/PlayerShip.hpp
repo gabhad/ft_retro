@@ -13,9 +13,6 @@ class PlayerShip : public Ship {
 
     public:
         PlayerShip(void);
-        PlayerShip(const PlayerShip &p);
-        PlayerShip &operator=(const PlayerShip &p);
-
         ~PlayerShip();
 
         void    moveLeft(void);
@@ -23,4 +20,4 @@ class PlayerShip : public Ship {
         void    dies(void);
 };
 
-#endif // PLAYER_SHIP_H
+#endif // PLAYER_SHIP_HPP
