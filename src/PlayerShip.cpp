@@ -1,14 +1,18 @@
 #include "PlayerShip.hpp"
 
-PlayerShip::PlayerShip(void)
-{
-    this->health = 10;
+PlayerShip::PlayerShip() {
+    this->position = COLS / 2 - 2;
 }
 
-void    PlayerShip::moveLeft(void) {}
-void    PlayerShip::moveRight(void) {}
+PlayerShip::PlayerShip(const PlayerShip &p) : IShip(p) {(void) p;}
+PlayerShip &PlayerShip::operator=(const PlayerShip &p) {(void) p; return *this;}
 
-void PlayerShip::dies(void) 
-{
-    
+PlayerShip::~PlayerShip() {}
+
+void    PlayerShip::moveLeft(void) {
+    this->position -= 1;
 }
+void    PlayerShip::moveRight(void) {
+    this->position += 1;
+}
+void    PlayerShip::dies(void) {}

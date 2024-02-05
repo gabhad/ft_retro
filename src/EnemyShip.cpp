@@ -1,17 +1,12 @@
 #include "EnemyShip.hpp"
 
-EnemyShip::EnemyShip(/* args */)
-{
-}
+EnemyShip::EnemyShip() {}
+EnemyShip::EnemyShip(const EnemyShip &p) : IShip(p) {(void)p;}
+EnemyShip &EnemyShip::operator=(const EnemyShip &) {return *this;}
 
-EnemyShip::~EnemyShip()
-{
-}
+EnemyShip::~EnemyShip() {}
 
 void    EnemyShip::moveLeft(void) {}
 void    EnemyShip::moveRight(void) {}
 
-void EnemyShip::dies()
-{
-    
-}
+void    EnemyShip::dies() {}

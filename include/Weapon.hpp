@@ -1,19 +1,18 @@
 #ifndef WEAPON_HPP
 # define WEAPON_HPP
 
-class Weapon
-{
-protected:
-        int damage;
-        int ammo;
-
+class Weapon {
+private:
+    int damage;
+    int ammo;
 public:
     Weapon();
+    Weapon(const Weapon &);
+    Weapon &operator=(const Weapon &);
+
     ~Weapon();
 
-    virtual void    shoots(void) = 0;
-
+    void    shoots(void);
 };
 
-#endif
-
+#endif  // WEAPON_HPP

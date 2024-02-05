@@ -5,19 +5,23 @@
 #include "Weapon.hpp"
 #include "Ship.hpp"
 
-class PlayerShip : public Ship {
-    private:
-        std::string name1 = "^ /\\ ^";
-        std::string name2 = "| ll |";
-        std::string name3 = "vv";
+class PlayerShip : public IShip {
+private:
+    std::string name1 = "^ /\\ ^";
+    std::string name2 = "| ll |";
+    std::string name3 = "vv";
+    int         position;
+public:
+    PlayerShip();
+    PlayerShip(const PlayerShip &);
+    PlayerShip &operator=(const PlayerShip &);
 
-    public:
-        PlayerShip(void);
-        ~PlayerShip();
+    ~PlayerShip();
 
-        void    moveLeft(void);
-        void    moveRight(void);
-        void    dies(void);
+    void    moveLeft(void);
+    void    moveRight(void);
+    void    dies(void);
 };
 
-#endif // PLAYER_SHIP_HPP
+
+#endif  // PLAYER_SHIP_HPP

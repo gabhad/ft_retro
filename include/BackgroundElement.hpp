@@ -1,14 +1,15 @@
 #ifndef BACKGROUND_ELEMENT_HPP
 # define BACKGROUND_ELEMENT_HPP
 
-class BackgroundElement
-{
+class BackgroundElement {
 private:
-    /* data */
+
 public:
-    BackgroundElement(/* args */);
+    BackgroundElement();
+    BackgroundElement(const BackgroundElement &);
+    BackgroundElement &operator=(const BackgroundElement &);
+
     ~BackgroundElement();
 };
 
-
-#endif
+#endif  // BACKGROUND_ELEMENT_HPP

@@ -1,12 +1,10 @@
-                l / \ l
-                l-| |-l
-                l \ / l
+PlayerShip
 
+                ^ /\ ^
+                | ll |
+                  vv
 
-Fleche gauche : 68
-Fleche droite : 67
-
-Spacebar : 32
-Echap : 27
-
-Numbers : 48-57
+EnemyShip
+                u-u
+                |o|
+                v v

@@ -1,21 +1,20 @@
-#ifndef SHIP_H
-    #define SHIP_H
+#ifndef SHIP_HPP
+# define SHIP_HPP
 
 #include "Weapon.hpp"
+#include "ncurses.h"
 
-class Ship
-{
+class IShip {
 protected:
-    int         health;
-    Weapon      weap;
-    int         position;
+    int             health;
+    Weapon          weap;
 
 public:
-    Ship();
-    Ship(const Ship &s);
-    Ship &operator=(const Ship &p);
+    IShip();
+    IShip(const IShip &);
+    IShip &operator=(const IShip &);
 
-    ~Ship();
+    ~IShip();
 
     void            changesWeapon(Weapon newWeap);
     void            shootsMissile(void);
@@ -23,7 +22,7 @@ public:
     virtual void    moveLeft(void) = 0;
     virtual void    moveRight(void) = 0;
     virtual void    dies(void) = 0;
+
 };
 
-
-#endif
+#endif  // SHIP_HPP

@@ -1,43 +1,28 @@
 #include "Ship.hpp"
 
-Ship::Ship()
-{
-}
+IShip::IShip() {}
+IShip::IShip(const IShip &) {}
+IShip &IShip::operator=(const IShip &) {return *this;}
 
-Ship::Ship(const Ship &s) : health(s.health), weap(s.weap) 
-{
-     // XXX a corriger
-}
+IShip::~IShip() {}
 
-Ship &Ship::operator=(const Ship &s)
-{
-    if (this != &s) {
-        this->health = s.health;
-        this->weap = s.weap; // XXX a corriger si Weapon a besoin d'une logique de copie
-    }
-    return *this;
-}
 
-Ship::~Ship()
-{
-}
-
-void    Ship::changesWeapon(Weapon newWeap) 
+void    IShip::changesWeapon(Weapon newWeap) 
 {
     this->weap = newWeap;
 }
 
-void    Ship::shootsMissile(void)
+void    IShip::shootsMissile(void)
 {
 
 }
 
-void    Ship::getsDamage(int dmg) 
+void    IShip::getsDamage(int dmg) 
 {
     this->health -= dmg;
     if (this->health <= 0)
         dies();
 }
 
-void    Ship::moveLeft(void){} 
-void    Ship::moveRight(void){}
+void    IShip::moveLeft(void){} 
+void    IShip::moveRight(void){}
