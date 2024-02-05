@@ -9,15 +9,14 @@ GameEntity::GameEntity(WINDOW *ath, WINDOW *gameScreen) {
     while (1) {
         wrefresh(ath);
         wrefresh(gameScreen);
-        while (int i = getch())
-        {
-            if (i == 27)
-                break;
-            else if (i == KEY_LEFT)
-                mvwprintw(gameScreen, 1, 1, "Vous avez appuye sur gauche");
-            else if (i == KEY_RIGHT)
-                mvwprintw(gameScreen, 1, 1, "Vous avez appuye sur droite");
-        }
+        int i = getch();
+        this->ship->printShip(gameScreen, 25);
+        if (i == 27)
+            break;
+        else if (i == KEY_LEFT)
+            mvwprintw(gameScreen, 1, 1, "Vous avez appuye sur gauche");
+        else if (i == KEY_RIGHT)
+            mvwprintw(gameScreen, 1, 1, "Vous avez appuye sur droite");
     }
 }
 

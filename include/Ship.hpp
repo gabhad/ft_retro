@@ -22,6 +22,7 @@ public:
     virtual void    moveLeft(void) = 0;
     virtual void    moveRight(void) = 0;
     virtual void    dies(void) = 0;
+    virtual void    printShip(WINDOW *win, int position) = 0;
 
 };
 

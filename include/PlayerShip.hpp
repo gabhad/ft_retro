@@ -21,6 +21,7 @@ public:
     void    moveLeft(void);
     void    moveRight(void);
     void    dies(void);
+    void    printShip (WINDOW *win, int position);
 };
 
 
