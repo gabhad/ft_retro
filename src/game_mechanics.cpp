@@ -16,6 +16,7 @@ void    start_game(void) {
         wrefresh(Game->ath);
         wrefresh(Game->gameScreen);
         Game->printShip();
+        Game->updateMissiles();
         int i = getch();
         if (i == 27)
             break;

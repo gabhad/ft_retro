@@ -3,6 +3,7 @@
 
 #include <ncurses.h>
 #include "PlayerShip.hpp"
+#include "Missile.hpp"
 
 class GameEntity {
 private:
@@ -22,6 +23,7 @@ public:
     void    moveLeft(void);
     void    moveRight(void);
     void    shoots(void);
+    void    updateMissiles(void);
 };
 
 #endif  // GAME_ENTITY_HPP

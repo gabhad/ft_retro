@@ -39,3 +39,11 @@ void    GameEntity::shoots()
     mvwprintw(this->gameScreen, LINES - 8, this->ship->accessPosition(), "*");
     mvwprintw(this->gameScreen, LINES - 8, this->ship->accessPosition() + 5, "*");
 }
+
+void    GameEntity::updateMissiles() // Permet de scanner a chaque tour de boucle les missiles existants et les deplace
+{
+    // Stocker tous les missiles tires dans un array de missiles, avec leurs coordonnees
+    // Les avancer selon leur direction de 1 a chaque iteration
+    // Si LINES du missile = LINES d'un vaisseau 
+    // => appliquer dommage sur le vaisseau
+}

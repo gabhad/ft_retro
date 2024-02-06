@@ -8,8 +8,10 @@ class Missile {
 private:
     int         damage;
     std::string direction;
+    int         x;
+    int         y;
 public:
-    Missile(int, std::string);
+    Missile(int, std::string, int, int);
     Missile(const Missile &);
     Missile &operator=(const Missile &);
 

@@ -21,9 +21,14 @@ int    PlayerShip::accessPosition(void)
 
 void    PlayerShip::moveLeft(void) {
     this->position -= 3;
+    if (this->position <= 1)
+        this->position = 1;
+
 }
 void    PlayerShip::moveRight(void) {
     this->position += 3;
+    if (this->position >= COLS - 7)
+        this->position = COLS - 7;
 }
 void    PlayerShip::dies(void) {}
 
@@ -36,5 +41,5 @@ void    PlayerShip::printShip(WINDOW *win, int position)
 
 void    PlayerShip::shootsMissile(void)
 {
-    this->weap->shoots(this->weap->getDamage(), "UP");
+    this->weap->shoots(this->weap->getDamage(), "UP", this->position, LINES - 8);
 }

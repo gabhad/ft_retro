@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -g -Wall -Wextra -Werror -std=c++17
+CFLAGS = -g -Wall -Wextra -Werror -std=c++20
 LDFLAGS = -lncurses
 INCLUDES = include/
 SRC = src/main.cpp \
@@ -13,7 +13,7 @@ SRC = src/main.cpp \
 		src/PlayerShip.cpp \
 		src/Ship.cpp \
 		src/Weapon.cpp 
-TARGET = ft-retro
+TARGET = ft_retro
 
 all: $(TARGET)
 

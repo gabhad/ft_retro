@@ -12,9 +12,9 @@ Weapon &Weapon::operator=(const Weapon &) {return *this;}
 
 Weapon::~Weapon() {}
 
-void    Weapon::shoots(int damage, std::string direction)
+void    Weapon::shoots(int damage, std::string direction, int x, int y)
 {
-    Missile *miss = new Missile(damage, direction);
+    Missile *miss = new Missile(damage, direction, x, y);
     (void)miss;
 }
 
