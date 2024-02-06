@@ -7,17 +7,17 @@
 class IShip {
 protected:
     int             health;
-    Weapon          weap;
+    Weapon          *weap;
 
 public:
     IShip();
     IShip(const IShip &);
     IShip &operator=(const IShip &);
 
-    ~IShip();
+    virtual ~IShip();
 
-    void            changesWeapon(Weapon newWeap);
-    void            shootsMissile(void);
+    void            changesWeapon(Weapon *newWeap);
+    virtual void    shootsMissile(void) = 0;
     void            getsDamage(int dmg);
     virtual void    moveLeft(void) = 0;
     virtual void    moveRight(void) = 0;

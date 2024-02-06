@@ -1,15 +1,17 @@
 #include "Missile.hpp"
 
-
-Missile::Missile(/* args */)
+Missile::Missile(int dmg, std::string dir) 
 {
+    this->damage = dmg;
+    this->direction = dir;
 }
 
-Missile::~Missile()
-{
-}
+Missile::Missile(const Missile &) {}
+Missile &Missile::operator=(const Missile &m) {(void) m; return *this;}
 
-void Missile::dealsDamage(int dmg) 
+Missile::~Missile() {}
+
+void Missile::dealsDamage(IShip *ship) 
 {
-    dmg++; // XXX a corriger
+    (void) ship;
 }

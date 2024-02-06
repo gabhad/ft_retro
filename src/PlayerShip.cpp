@@ -2,12 +2,17 @@
 
 PlayerShip::PlayerShip() {
     this->position = COLS / 2 - 2;
+    Weapon  *weap = new Weapon(3, -1);
+    this->weap = weap;
 }
 
 PlayerShip::PlayerShip(const PlayerShip &p) : IShip(p) {(void) p;}
 PlayerShip &PlayerShip::operator=(const PlayerShip &p) {(void) p; return *this;}
 
-PlayerShip::~PlayerShip() {}
+PlayerShip::~PlayerShip() 
+{
+    delete this->weap;
+}
 
 int    PlayerShip::accessPosition(void)
 {
@@ -27,4 +32,9 @@ void    PlayerShip::printShip(WINDOW *win, int position)
     mvwprintw(win, LINES - 7, position, "%s", this->name1.c_str());
     mvwprintw(win, LINES - 6, position, "%s", this->name2.c_str());
     mvwprintw(win, LINES - 5, position + 2, "%s", this->name3.c_str());
+}
+
+void    PlayerShip::shootsMissile(void)
+{
+    this->weap->shoots(this->weap->getDamage(), "UP");
 }

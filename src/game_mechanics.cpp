@@ -23,6 +23,8 @@ void    start_game(void) {
             Game->moveLeft();
         else if (i == KEY_RIGHT)
             Game->moveRight();
+        else if (i == 32)
+            Game->shoots();
     }
 
     clear();

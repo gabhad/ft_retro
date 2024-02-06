@@ -21,6 +21,7 @@ public:
     void    printShip(void);
     void    moveLeft(void);
     void    moveRight(void);
+    void    shoots(void);
 };
 
 #endif  // GAME_ENTITY_HPP

@@ -1,21 +1,21 @@
-//unchanged
-
 #ifndef MISSILE_HPP
 # define MISSILE_HPP
 
 #include <string>
+#include "Ship.hpp"
 
-class Missile
-{
+class Missile {
 private:
+    int         damage;
     std::string direction;
-
 public:
-    Missile(/* args */);
+    Missile(int, std::string);
+    Missile(const Missile &);
+    Missile &operator=(const Missile &);
+
     ~Missile();
 
-    void    dealsDamage(int dmg);
+    void    dealsDamage(IShip *ship);
 };
 
-
-#endif
+#endif  // MISSILE_HPP

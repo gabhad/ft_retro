@@ -11,6 +11,7 @@ private:
     std::string name2 = "| ll |";
     std::string name3 = "vv";
     int         position;
+    
 public:
     PlayerShip();
     PlayerShip(const PlayerShip &);
@@ -23,6 +24,7 @@ public:
     void    moveRight(void);
     void    dies(void);
     void    printShip (WINDOW *win, int position);
+    void    shootsMissile(void);
 };
 
 

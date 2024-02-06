@@ -13,7 +13,10 @@ GameEntity::GameEntity(const GameEntity &G) {(void)G;}
 
 GameEntity &GameEntity::operator=(const GameEntity &G) {(void) G; return *this;}
 
-GameEntity::~GameEntity() {}
+GameEntity::~GameEntity() 
+{
+    delete this->ship;
+}
 
 void    GameEntity::printShip(void)
 {
@@ -28,4 +31,11 @@ void    GameEntity::moveLeft()
 void    GameEntity::moveRight()
 {
     this->ship->moveRight();
+}
+
+void    GameEntity::shoots()
+{
+    this->ship->shootsMissile();
+    mvwprintw(this->gameScreen, LINES - 8, this->ship->accessPosition(), "*");
+    mvwprintw(this->gameScreen, LINES - 8, this->ship->accessPosition() + 5, "*");
 }
