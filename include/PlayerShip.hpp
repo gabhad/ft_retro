@@ -18,6 +18,7 @@ public:
 
     ~PlayerShip();
 
+    int     accessPosition(void);
     void    moveLeft(void);
     void    moveRight(void);
     void    dies(void);

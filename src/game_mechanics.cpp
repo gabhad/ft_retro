@@ -9,6 +9,22 @@ void    start_game(void) {
 
     GameEntity *Game = new GameEntity(ath, gameScreen);
 
+    while (1) {
+        clear();
+        box(Game->ath, ACS_VLINE, ACS_HLINE);
+        box(Game->gameScreen, ACS_VLINE, ACS_HLINE);
+        wrefresh(Game->ath);
+        wrefresh(Game->gameScreen);
+        Game->printShip();
+        int i = getch();
+        if (i == 27)
+            break;
+        else if (i == KEY_LEFT)
+            Game->moveLeft();
+        else if (i == KEY_RIGHT)
+            Game->moveRight();
+    }
+
     clear();
     delwin(ath) ;
     delwin(gameScreen);

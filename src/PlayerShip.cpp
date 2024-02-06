@@ -9,17 +9,22 @@ PlayerShip &PlayerShip::operator=(const PlayerShip &p) {(void) p; return *this;}
 
 PlayerShip::~PlayerShip() {}
 
+int    PlayerShip::accessPosition(void)
+{
+    return this->position;
+}
+
 void    PlayerShip::moveLeft(void) {
-    this->position -= 1;
+    this->position -= 3;
 }
 void    PlayerShip::moveRight(void) {
-    this->position += 1;
+    this->position += 3;
 }
 void    PlayerShip::dies(void) {}
 
 void    PlayerShip::printShip(WINDOW *win, int position) 
 {
-    mvwprintw(win, LINES - 4, position, "%s", this->name1);
-    mvwprintw(win, LINES - 3, position, "%s", this->name2);
-    mvwprintw(win, LINES - 2, position, "%s", this->name3);
+    mvwprintw(win, LINES - 7, position, "%s", this->name1.c_str());
+    mvwprintw(win, LINES - 6, position, "%s", this->name2.c_str());
+    mvwprintw(win, LINES - 5, position + 2, "%s", this->name3.c_str());
 }

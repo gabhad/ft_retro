@@ -1,23 +1,12 @@
 #include "GameEntity.hpp"
 
-GameEntity::GameEntity(WINDOW *ath, WINDOW *gameScreen) {
-    box(ath, ACS_VLINE, ACS_HLINE);
-    box(gameScreen, ACS_VLINE, ACS_HLINE);
+GameEntity::GameEntity(WINDOW *ath, WINDOW *gameScreen) 
+{
+    this->ath = ath;
+    this->gameScreen = gameScreen;
+    
     PlayerShip  *ship = new PlayerShip;
     this->ship = ship;
-    
-    while (1) {
-        wrefresh(ath);
-        wrefresh(gameScreen);
-        int i = getch();
-        this->ship->printShip(gameScreen, 25);
-        if (i == 27)
-            break;
-        else if (i == KEY_LEFT)
-            mvwprintw(gameScreen, 1, 1, "Vous avez appuye sur gauche");
-        else if (i == KEY_RIGHT)
-            mvwprintw(gameScreen, 1, 1, "Vous avez appuye sur droite");
-    }
 }
 
 GameEntity::GameEntity(const GameEntity &G) {(void)G;}
@@ -25,3 +14,18 @@ GameEntity::GameEntity(const GameEntity &G) {(void)G;}
 GameEntity &GameEntity::operator=(const GameEntity &G) {(void) G; return *this;}
 
 GameEntity::~GameEntity() {}
+
+void    GameEntity::printShip(void)
+{
+    this->ship->printShip(this->gameScreen, this->ship->accessPosition());
+}
+
+void    GameEntity::moveLeft()
+{
+    this->ship->moveLeft();
+}
+
+void    GameEntity::moveRight()
+{
+    this->ship->moveRight();
+}

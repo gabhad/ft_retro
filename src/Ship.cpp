@@ -6,7 +6,6 @@ IShip &IShip::operator=(const IShip &) {return *this;}
 
 IShip::~IShip() {}
 
-
 void    IShip::changesWeapon(Weapon newWeap) 
 {
     this->weap = newWeap;
