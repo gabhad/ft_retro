@@ -36,7 +36,6 @@ public:
     int     returnScore(void);
     void    updateTime(void);
     void    updateScore(int n);
-
 };
 
 #endif  // GAME_ENTITY_HPP

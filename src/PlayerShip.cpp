@@ -39,13 +39,13 @@ void    PlayerShip::moveRight(void) {
 }
 
 void    PlayerShip::moveUp(void) {
-    this->positionY -= 3;
+    this->positionY -= 1;
     if (this->positionY <= 1)
         this->positionY = 1;
 }
 
 void    PlayerShip::moveDown(void) {
-    this->positionY += 3;
+    this->positionY += 1;
     if (this->positionY >= LINES - 7)
         this->positionY = LINES - 7;
 }

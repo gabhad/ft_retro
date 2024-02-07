@@ -24,7 +24,6 @@ public:
     virtual void    moveRight(void) = 0;
     virtual void    moveUp(void) = 0;
     virtual void    moveDown(void) = 0;
-
     virtual void    dies(void) = 0;
 };
 

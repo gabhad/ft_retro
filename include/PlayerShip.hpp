@@ -35,7 +35,6 @@ public:
     void    moveDown(void);
 
     void    dies(void);
-
 };
 
 
