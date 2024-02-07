@@ -12,6 +12,12 @@ public:
     GameEnv &operator=(const GameEnv &);
 
     ~GameEnv();
+
+    int returnTime(void);
+    int returnScore(void);
+
+    void    updateTime(void);
+    void    updateScore(int n);
 };
 
 #endif  // GAME_ENV_HPP

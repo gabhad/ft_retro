@@ -25,6 +25,7 @@ public:
     void    dies(void);
     void    printShip (WINDOW *win, int position);
     void    shootsMissile(void);
+    int     getHealth(void);
 };
 
 

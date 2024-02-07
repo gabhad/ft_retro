@@ -5,6 +5,7 @@ INCLUDES = include/
 SRC = src/main.cpp \
 		src/launch_screen.cpp \
 		src/game_mechanics.cpp \
+		src/updateATH.cpp \
 		src/BackgroundElement.cpp \
 		src/EnemyShip.cpp \
 		src/GameEntity.cpp \

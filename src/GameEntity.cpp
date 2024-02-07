@@ -13,12 +13,12 @@ GameEntity::GameEntity(WINDOW *ath, WINDOW *gameScreen)
 }
 
 GameEntity::GameEntity(const GameEntity &G) {(void)G;}
-
 GameEntity &GameEntity::operator=(const GameEntity &G) {(void) G; return *this;}
 
 GameEntity::~GameEntity() 
 {
     delete this->ship;
+    delete this->Env;
 }
 
 void    GameEntity::printShip(void)
@@ -43,10 +43,33 @@ void    GameEntity::shoots()
     mvwprintw(this->gameScreen, LINES - 8, this->ship->accessPosition() + 5, "*");
 }
 
+int     GameEntity::getHealth()
+{
+    return this->ship->getHealth();
+}
+
 void    GameEntity::updateMissiles() // Permet de scanner a chaque tour de boucle les missiles existants et les deplace
 {
     // Stocker tous les missiles tires dans un array de missiles, avec leurs coordonnees
     // Les avancer selon leur direction de 1 a chaque iteration
     // Si LINES du missile = LINES d'un vaisseau 
     // => appliquer dommage sur le vaisseau
+}
+
+int GameEntity::returnTime(void)
+{
+    return this->Env->returnTime();
+}
+int GameEntity::returnScore(void)
+{
+    return this->Env->returnScore();
+}
+
+void    GameEntity::updateTime(void)
+{
+    this->Env->updateTime();
+}
+void    GameEntity::updateScore(int n)
+{
+    this->Env->updateScore(n);
 }

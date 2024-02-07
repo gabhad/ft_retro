@@ -3,7 +3,6 @@
 
 #include <ncurses.h>
 #include "PlayerShip.hpp"
-#include "Missile.hpp"
 #include "GameEnv.hpp"
 
 class GameEntity {
@@ -21,11 +20,21 @@ public:
 
     ~GameEntity();
 
+    // Ship Functions
     void    printShip(void);
     void    moveLeft(void);
     void    moveRight(void);
     void    shoots(void);
+    int     getHealth(void);
+
     void    updateMissiles(void);
+
+    // ATH Functions
+    int     returnTime(void);
+    int     returnScore(void);
+    void    updateTime(void);
+    void    updateScore(int n);
+
 };
 
 #endif  // GAME_ENTITY_HPP

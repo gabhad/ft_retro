@@ -24,10 +24,4 @@ public:
 
 };
 
-EnemyShip::EnemyShip() {}
-EnemyShip::EnemyShip(const EnemyShip &) {}
-EnemyShip &EnemyShip::operator=(const EnemyShip &) {}
-
-EnemyShip::~EnemyShip() {}
-
 #endif  // ENEMY_SHIP_HPP

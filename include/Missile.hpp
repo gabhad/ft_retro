@@ -3,8 +3,8 @@
 
 #include <string>
 
-#include "Ship.hpp"
 #include "GameEntity.hpp"
+#include "Ship.hpp"
 
 class Missile {
 private:
@@ -20,7 +20,7 @@ public:
     ~Missile();
 
     void    dealsDamage(IShip *ship);
-    void    printMissile(Missile &, GameEntity &G);
+    void    printMissile(Missile &, GameEntity &);
     void    updateMissiles(Missile &);
 };
 

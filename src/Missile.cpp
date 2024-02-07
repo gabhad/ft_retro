@@ -29,7 +29,6 @@ void    Missile::printMissile(Missile &m, GameEntity &Game)
     {
         mvwprintw(Game.gameScreen, x, y, "v");
         mvwprintw(Game.gameScreen, x, y + 5, "v");
-
     }
 }
 
