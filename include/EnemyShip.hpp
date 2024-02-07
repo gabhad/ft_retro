@@ -1,12 +1,11 @@
-//unchanged
-
 #ifndef ENEMY_SHIP_HPP
 # define ENEMY_SHIP_HPP
 
-#include "Ship.hpp"
 #include <string>
 
-class EnemyShip : public IShip {
+#include "Ship.hpp"
+
+class EnemyShip : public IShip{
 private:
     std::string name1 = "u-u";
     std::string name2 = "|o|";
@@ -22,6 +21,13 @@ public:
     void    moveLeft(void);
     void    moveRight(void);
     void    dies(void);
+
 };
+
+EnemyShip::EnemyShip() {}
+EnemyShip::EnemyShip(const EnemyShip &) {}
+EnemyShip &EnemyShip::operator=(const EnemyShip &) {}
+
+EnemyShip::~EnemyShip() {}
 
 #endif  // ENEMY_SHIP_HPP

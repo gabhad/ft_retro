@@ -2,7 +2,9 @@
 # define MISSILE_HPP
 
 #include <string>
+
 #include "Ship.hpp"
+#include "GameEntity.hpp"
 
 class Missile {
 private:
@@ -18,6 +20,8 @@ public:
     ~Missile();
 
     void    dealsDamage(IShip *ship);
+    void    printMissile(Missile &, GameEntity &G);
+    void    updateMissiles(Missile &);
 };
 
 #endif  // MISSILE_HPP

@@ -34,9 +34,9 @@ void    PlayerShip::dies(void) {}
 
 void    PlayerShip::printShip(WINDOW *win, int position) 
 {
-    mvwprintw(win, LINES - 7, position, "%s", this->name1.c_str());
-    mvwprintw(win, LINES - 6, position, "%s", this->name2.c_str());
-    mvwprintw(win, LINES - 5, position + 2, "%s", this->name3.c_str());
+    mvwprintw(win, LINES - 10, position, "%s", this->name1.c_str());
+    mvwprintw(win, LINES - 9, position, "%s", this->name2.c_str());
+    mvwprintw(win, LINES - 8, position + 2, "%s", this->name3.c_str());
 }
 
 void    PlayerShip::shootsMissile(void)
