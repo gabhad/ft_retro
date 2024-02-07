@@ -7,6 +7,9 @@ GameEntity::GameEntity(WINDOW *ath, WINDOW *gameScreen)
     
     PlayerShip  *ship = new PlayerShip;
     this->ship = ship;
+
+    GameEnv     *Env = new GameEnv;
+    this->Env = Env;
 }
 
 GameEntity::GameEntity(const GameEntity &G) {(void)G;}

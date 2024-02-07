@@ -1,5 +1,6 @@
 #include "ft_retro.hpp"
 #include "GameEntity.hpp"
+#include "GameEnv.hpp"
 #include <ncurses.h>
 
 void    resize_screen(void)
@@ -17,7 +18,7 @@ void    start_game(void) {
     WINDOW  *ath = subwin(stdscr, 3, COLS, 0, 0);
     WINDOW  *gameScreen = subwin(stdscr, LINES - 3, COLS, 3, 0);
 
-    GameEntity *Game = new GameEntity(ath, gameScreen);
+    GameEntity  *Game = new GameEntity(ath, gameScreen);
 
     while (1) {
         clear();
@@ -30,6 +31,7 @@ void    start_game(void) {
         wrefresh(Game->gameScreen);
         Game->printShip();
         Game->updateMissiles();
+        updateATH(*Game);
         int i = getch();
         if (i == 27)
             break;

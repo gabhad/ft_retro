@@ -6,6 +6,8 @@ GameEnv::GameEnv()
     this->time = 100;
 }
 
-GameEnv::~GameEnv()
-{
-}
+GameEnv::GameEnv(const GameEnv &) {}
+GameEnv &GameEnv::operator=(const GameEnv &) {return *this;}
+
+GameEnv::~GameEnv() {}
+

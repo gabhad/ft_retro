@@ -14,10 +14,4 @@ public:
     ~GameEnv();
 };
 
-GameEnv::GameEnv() {}
-GameEnv::GameEnv(const GameEnv &) {}
-GameEnv &GameEnv::operator=(const GameEnv &) {}
-
-GameEnv::~GameEnv() {}
-
 #endif  // GAME_ENV_HPP

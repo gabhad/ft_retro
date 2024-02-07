@@ -2,7 +2,7 @@
 
 EnemyShip::EnemyShip() {}
 EnemyShip::EnemyShip(const EnemyShip &p) : IShip(p) {(void)p;}
-EnemyShip &EnemyShip::operator=(const EnemyShip &) {return *this;}
+EnemyShip &EnemyShip::operator=(const EnemyShip &p) {(void)p; return *this;}
 
 EnemyShip::~EnemyShip() {}
 

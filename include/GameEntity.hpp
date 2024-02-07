@@ -4,10 +4,12 @@
 #include <ncurses.h>
 #include "PlayerShip.hpp"
 #include "Missile.hpp"
+#include "GameEnv.hpp"
 
 class GameEntity {
 private:
     PlayerShip  *ship;
+    GameEnv     *Env;
 
 public:
     WINDOW      *ath;
