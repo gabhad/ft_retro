@@ -23,7 +23,7 @@ GameEntity::~GameEntity()
 
 void    GameEntity::printShip(void)
 {
-    this->ship->printShip(this->gameScreen, this->ship->accessPosition());
+    this->ship->printShip(this->gameScreen, *(this->ship));
 }
 
 void    GameEntity::moveLeft()
@@ -36,11 +36,21 @@ void    GameEntity::moveRight()
     this->ship->moveRight();
 }
 
+void    GameEntity::moveUp()
+{
+    this->ship->moveUp();
+}
+
+void    GameEntity::moveDown()
+{
+    this->ship->moveDown();
+}
+
 void    GameEntity::shoots()
 {
     this->ship->shootsMissile();
-    mvwprintw(this->gameScreen, LINES - 8, this->ship->accessPosition(), "*");
-    mvwprintw(this->gameScreen, LINES - 8, this->ship->accessPosition() + 5, "*");
+    mvwprintw(this->gameScreen, LINES - 8, this->ship->getPositionX(), "*");
+    mvwprintw(this->gameScreen, LINES - 8, this->ship->getPositionX() + 5, "*");
 }
 
 int     GameEntity::getHealth()

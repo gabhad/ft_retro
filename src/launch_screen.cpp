@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 void    launch_screen3() {
-    const char  *msg = "Déplacez vous avec les flèches GAUCHE et DROITE";
+    const char  *msg = "Déplacez vous avec les flèches directionnelles";
     const char  *msg2 = "Tirez avec ESPACE";
     const char  *msg3 = "Surveillez votre niveau de vie en haut ainsi que le temps restant";
     const char  *msg4 = "Appuyez sur une touche pour commencer";

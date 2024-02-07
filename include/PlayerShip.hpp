@@ -10,7 +10,8 @@ private:
     std::string name1 = "^ /\\ ^";
     std::string name2 = "| ll |";
     std::string name3 = "vv";
-    int         position;
+    int         positionX;
+    int         positionY;
     
 public:
     PlayerShip();
@@ -19,13 +20,22 @@ public:
 
     ~PlayerShip();
 
-    int     accessPosition(void);
+    // Getters
+    int     getPositionX(void);
+    int     getPositionY(void);
+    int     getHealth(void);
+    
+    void    printShip (WINDOW *win, const PlayerShip &);
+    
+    // Inheritance functions
+    void    shootsMissile(void);
     void    moveLeft(void);
     void    moveRight(void);
+    void    moveUp(void);
+    void    moveDown(void);
+
     void    dies(void);
-    void    printShip (WINDOW *win, int position);
-    void    shootsMissile(void);
-    int     getHealth(void);
+
 };
 
 

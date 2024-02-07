@@ -24,7 +24,6 @@ void    start_game(void) {
         clear();
         // if (LINES < 40 || COLS < 100)
         //     resize_screen();
-        clear();
         box(Game->ath, ACS_VLINE, ACS_HLINE);
         box(Game->gameScreen, ACS_VLINE, ACS_HLINE);
         wrefresh(Game->ath);
@@ -39,10 +38,14 @@ void    start_game(void) {
             Game->moveLeft();
         else if (i == KEY_RIGHT)
             Game->moveRight();
+        else if (i == KEY_UP)
+            Game->moveUp();
+        else if (i == KEY_DOWN)
+            Game->moveDown();
         else if (i == 32)
             Game->shoots();
 
-        // Corriger bug en cas de resize le vaisseau sort du box
+        // XXXCorriger bug en cas de resize le vaisseau sort du box
     }
     clear();
     delwin(ath) ;

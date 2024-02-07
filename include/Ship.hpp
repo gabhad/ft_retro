@@ -17,13 +17,15 @@ public:
     virtual ~IShip();
 
     void            changesWeapon(Weapon *newWeap);
-    virtual void    shootsMissile(void) = 0;
     void            getsDamage(int dmg);
+    
+    virtual void    shootsMissile(void) = 0;
     virtual void    moveLeft(void) = 0;
     virtual void    moveRight(void) = 0;
-    virtual void    dies(void) = 0;
-    virtual void    printShip(WINDOW *win, int position) = 0;
+    virtual void    moveUp(void) = 0;
+    virtual void    moveDown(void) = 0;
 
+    virtual void    dies(void) = 0;
 };
 
 #endif  // SHIP_HPP

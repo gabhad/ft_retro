@@ -24,6 +24,8 @@ public:
     void    printShip(void);
     void    moveLeft(void);
     void    moveRight(void);
+    void    moveUp(void);
+    void    moveDown(void);
     void    shoots(void);
     int     getHealth(void);
 
