@@ -3,14 +3,27 @@
 #include "GameEnv.hpp"
 #include <ncurses.h>
 
+void    drawBox(WINDOW *win)
+{
+    box(win, 0, 0);
+    wrefresh(win);
+}
+
 void    resize_screen(GameEntity &Game)
 {
     clear();
     mvprintw(LINES / 2 - 2, COLS/2 - 26, 
             "Le terminal actuel comporte %d lignes et %d colonnes", LINES, COLS);
     Game.getSize();
-    //wrefresh(stdscr);
     getch();
+    if (!Game.checkSize()) {
+        int newLines = LINES;
+        int newCols = COLS;
+        delwin(Game.ath);
+        delwin(Game.gameScreen);
+        Game.ath = derwin(stdscr, 3, newCols, 0, 0);
+        Game.gameScreen = derwin(stdscr, newLines - 3, newCols, 3, 0);
+        wrefresh(stdscr);    }
 }
 
 void    start_game(void) {
@@ -22,16 +35,13 @@ void    start_game(void) {
     while (1) {
         while (Game->checkSize())
             resize_screen(*Game);
-        endwin();
-        refresh();
         clear();
-        box(Game->getATH(), ACS_VLINE, ACS_HLINE);
-        //box(Game->getGameScreen(), ACS_VLINE, ACS_HLINE);
         Game->printShip();
         Game->updateMissiles();
         updateATH(*Game);
-        wrefresh(Game->getATH());
-        wrefresh(Game->getGameScreen());
+        drawBox(Game->ath);
+        drawBox(Game->gameScreen);
+
         int i = getch();
         if (i == 27)
             break;
@@ -48,7 +58,6 @@ void    start_game(void) {
 
         // XXXCorriger bug en cas de resize le vaisseau sort du box
     }
-    clear();
     delwin(ath) ;
     delwin(gameScreen);
     delete Game;

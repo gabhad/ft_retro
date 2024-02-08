@@ -22,13 +22,13 @@ void    Missile::printMissile(Missile &m, GameEntity &Game)
 {
     if (m.direction == "UP")
     {
-        mvwprintw(Game.getGameScreen(), x, y, "^");
-        mvwprintw(Game.getGameScreen(), x, y + 5, "^");
+        mvwprintw(Game.gameScreen, x, y, "^");
+        mvwprintw(Game.gameScreen, x, y + 5, "^");
     }
     else if (m.direction == "DOWN")
     {
-        mvwprintw(Game.getGameScreen(), x, y, "v");
-        mvwprintw(Game.getGameScreen(), x, y + 5, "v");
+        mvwprintw(Game.gameScreen, x, y, "v");
+        mvwprintw(Game.gameScreen, x, y + 5, "v");
     }
 }
 

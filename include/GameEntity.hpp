@@ -7,9 +7,6 @@
 
 class GameEntity {
 private:
-    WINDOW    *ath;
-    WINDOW    *gameScreen;
-
     PlayerShip  *ship;
     GameEnv     *Env;
     int         sizeLine;
@@ -22,9 +19,10 @@ public:
 
     ~GameEntity();
 
+    WINDOW    *ath;
+    WINDOW    *gameScreen;
+
     // Getters
-    WINDOW  *getATH(void);
-    WINDOW  *getGameScreen(void);
     bool    checkSize(void);
     void    getSize(void);
 

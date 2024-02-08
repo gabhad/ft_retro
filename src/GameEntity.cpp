@@ -23,16 +23,6 @@ GameEntity::~GameEntity()
     delete this->Env;
 }
 
-WINDOW  *GameEntity::getATH(void) 
-{
-    return this->ath;
-}
-
-WINDOW  *GameEntity::getGameScreen(void) 
-{
-    return this->gameScreen;
-}
-
 bool    GameEntity::checkSize(void)
 {
     if (LINES != this->sizeLine || COLS != this->sizeCols)
