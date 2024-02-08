@@ -13,7 +13,7 @@ void    launch_screen3() {
     int         taille4 = strlen(msg4);
 
     while(1) {
-        if (LINES < 40 || COLS < 100)
+        if (LINES < 50 || COLS < 100)
             check_term_size();
         clear();
         mvprintw(LINES/2 - 5, COLS/2 - taille/2, "%s", msg);
@@ -40,7 +40,7 @@ void    launch_screen2() {
     int         taille4 = strlen(msg4);
     int         taille5 = strlen(msg5);
     while(1) {
-        if (LINES < 40 || COLS < 100)
+        if (LINES < 50 || COLS < 100)
             check_term_size();
         clear();
         mvprintw(LINES/2 - 5, COLS/2 - taille/2, "%s", msg);
@@ -61,7 +61,7 @@ void    launch_screen() {
     const char  *msg = "Vérification effectuée, votre expérience peut commencer";
     int         taille = strlen(msg);
     while(1) {
-        if (LINES < 40 || COLS < 100)
+        if (LINES < 50 || COLS < 100)
             check_term_size();
         clear();
         mvprintw(LINES/2, COLS/2 - taille/2, "%s", msg);
@@ -79,7 +79,7 @@ void    check_term_size() {
     const char  *msg2= "d'une meilleur expérience de jeu";
     int         taille = strlen(msg);
     int         taille2 = strlen(msg2);
-    while (LINES < 40 || COLS < 100) {
+    while (LINES < 50 || COLS < 100) {
         clear();
         mvprintw(LINES / 2 - 2, COLS/2 - 26, 
                 "Le terminal actuel comporte %d lignes et %d colonnes", LINES, COLS);

@@ -7,18 +7,26 @@
 
 class GameEntity {
 private:
+    WINDOW    *ath;
+    WINDOW    *gameScreen;
+
     PlayerShip  *ship;
     GameEnv     *Env;
+    int         sizeLine;
+    int         sizeCols;
 
 public:
-    WINDOW      *ath;
-    WINDOW      *gameScreen;
-
     GameEntity(WINDOW *ath, WINDOW *gameScreen);
     GameEntity(const GameEntity &);
     GameEntity &operator=(const GameEntity &);
 
     ~GameEntity();
+
+    // Getters
+    WINDOW  *getATH(void);
+    WINDOW  *getGameScreen(void);
+    bool    checkSize(void);
+    void    getSize(void);
 
     // Ship Functions
     void    printShip(void);

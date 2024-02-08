@@ -3,34 +3,35 @@
 #include "GameEnv.hpp"
 #include <ncurses.h>
 
-void    resize_screen(void)
+void    resize_screen(GameEntity &Game)
 {
-    while (LINES < 40 || COLS < 100) {
-        clear();
-        mvprintw(LINES/2, COLS/2 - 15, "Merci d'agrandir votre terminal");
-        refresh();
-        getch();
-    }
+    clear();
+    mvprintw(LINES / 2 - 2, COLS/2 - 26, 
+            "Le terminal actuel comporte %d lignes et %d colonnes", LINES, COLS);
+    Game.getSize();
+    //wrefresh(stdscr);
+    getch();
 }
 
 void    start_game(void) {
-    clear();
-    WINDOW  *ath = subwin(stdscr, 3, COLS, 0, 0);
-    WINDOW  *gameScreen = subwin(stdscr, LINES - 3, COLS, 3, 0);
+    WINDOW  *ath = derwin(stdscr, 3, COLS, 0, 0);
+    WINDOW  *gameScreen = derwin(stdscr, LINES - 3, COLS, 3, 0);
 
     GameEntity  *Game = new GameEntity(ath, gameScreen);
 
     while (1) {
+        while (Game->checkSize())
+            resize_screen(*Game);
+        endwin();
+        refresh();
         clear();
-        // if (LINES < 40 || COLS < 100)
-        //     resize_screen();
-        box(Game->ath, ACS_VLINE, ACS_HLINE);
-        box(Game->gameScreen, ACS_VLINE, ACS_HLINE);
-        wrefresh(Game->ath);
-        wrefresh(Game->gameScreen);
+        box(Game->getATH(), ACS_VLINE, ACS_HLINE);
+        //box(Game->getGameScreen(), ACS_VLINE, ACS_HLINE);
         Game->printShip();
         Game->updateMissiles();
         updateATH(*Game);
+        wrefresh(Game->getATH());
+        wrefresh(Game->getGameScreen());
         int i = getch();
         if (i == 27)
             break;

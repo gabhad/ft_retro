@@ -3,11 +3,11 @@
 
 void    printElements(GameEntity &Game)
 {
-    mvwprintw(Game.ath, 1, 2, "SCORE= %d", Game.returnScore());
-    mvwprintw(Game.ath, 1, COLS/2 - 5, "TIME= %d", Game.returnTime());
-    mvwprintw(Game.ath, 1, COLS - 15, "LIVES= ");
+    mvwprintw(Game.getATH(), 1, 2, "SCORE= %d", Game.returnScore());
+    mvwprintw(Game.getATH(), 1, COLS/2 - 5, "TIME= %d", Game.returnTime());
+    mvwprintw(Game.getATH(), 1, COLS - 15, "LIVES= ");
     for (int i = 0; i < Game.getHealth(); i++)
-        mvwprintw(Game.ath, 1, COLS - 4 - i, "X");
+        mvwprintw(Game.getATH(), 1, COLS - 4 - i, "X");
 }
 
 void    updateATH(GameEntity &Game)
