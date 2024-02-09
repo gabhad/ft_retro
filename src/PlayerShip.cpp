@@ -1,6 +1,9 @@
 #include "PlayerShip.hpp"
 
 PlayerShip::PlayerShip() {
+    this->name1 = "^ /\\ ^";
+    this->name2 = "| ll |";
+    this->name3 = "vv";
     this->positionX = COLS / 2 - 2;
     this->positionY = LINES - 8;
     Weapon  *weap = new Weapon(3, -1);
@@ -16,15 +19,9 @@ PlayerShip::~PlayerShip()
     delete this->weap;
 }
 
-int    PlayerShip::getPositionX(void)
-{
-    return this->positionX;
-}
-
-int    PlayerShip::getPositionY(void)
-{
-    return this->positionY;
-}
+int     PlayerShip::getPositionX(void) { return this->positionX; }
+int     PlayerShip::getPositionY(void) { return this->positionY; }
+int     PlayerShip::getHealth(void) { return this->health; }
 
 void    PlayerShip::moveLeft(void) {
     this->positionX -= 3;
@@ -50,6 +47,12 @@ void    PlayerShip::moveDown(void) {
         this->positionY = LINES - 7;
 }
 
+void    PlayerShip::getsDamage(int dmg) {
+        this->health -= dmg;
+    if (this->health <= 0)
+        this->dies();
+}
+
 void    PlayerShip::dies(void) {}
 
 void    PlayerShip::printShip(WINDOW *win, const PlayerShip &p) 
@@ -61,10 +64,6 @@ void    PlayerShip::printShip(WINDOW *win, const PlayerShip &p)
 
 void    PlayerShip::shootsMissile(void)
 {
-    this->weap->shoots(this->weap->getDamage(), "UP", this->positionX, LINES - 8);
+    this->weap->shoots(this->weap->getDamage(), "UP", this->positionX, this->positionY);
 }
 
-int     PlayerShip::getHealth(void)
-{
-    return this->health;
-}

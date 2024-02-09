@@ -7,10 +7,7 @@
 
 class EnemyShip : public IShip{
 private:
-    std::string name1 = "u-u";
-    std::string name2 = "|o|";
-    std::string name3 = "v v";
-
+    bool    isDead;
 public:
     EnemyShip();
     EnemyShip(const EnemyShip &);
@@ -18,8 +15,19 @@ public:
 
     ~EnemyShip();
 
+    // Getters
+    int     getPositionX(void);
+    int     getPositionY(void);
+    int     getHealth(void);
+    
+    void    printShip (WINDOW *win, const EnemyShip &);
+
+    // Actions
+    void    shootsMissile(void);
     void    moveLeft(void);
     void    moveRight(void);
+    void    moveDown(void);
+    void    getsDamage(int dmg);
     void    dies(void);
 
 };

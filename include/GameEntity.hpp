@@ -3,11 +3,13 @@
 
 #include <ncurses.h>
 #include "PlayerShip.hpp"
+#include "EnemyShip.hpp"
 #include "GameEnv.hpp"
 
 class GameEntity {
 private:
-    PlayerShip  *ship;
+    PlayerShip  *pShip;
+    EnemyShip   eShips[20];
     GameEnv     *Env;
     int         sizeLine;
     int         sizeCols;

@@ -8,7 +8,7 @@ GameEntity::GameEntity(WINDOW *ath, WINDOW *gameScreen)
     this->sizeCols = COLS;
     
     PlayerShip  *ship = new PlayerShip;
-    this->ship = ship;
+    this->pShip = ship;
 
     GameEnv     *Env = new GameEnv;
     this->Env = Env;
@@ -19,7 +19,7 @@ GameEntity &GameEntity::operator=(const GameEntity &G) {(void) G; return *this;}
 
 GameEntity::~GameEntity() 
 {
-    delete this->ship;
+    delete this->pShip;
     delete this->Env;
 }
 
@@ -38,39 +38,41 @@ void    GameEntity::getSize(void)
 
 void    GameEntity::printShip(void)
 {
-    this->ship->printShip(this->gameScreen, *(this->ship));
+    this->pShip->printShip(this->gameScreen, *(this->pShip));
+    for (int i = 0; i < 20; i++)
+        this->eShips->printShip(this->gameScreen, this->eShips[i]);
 }
 
 void    GameEntity::moveLeft()
 {
-    this->ship->moveLeft();
+    this->pShip->moveLeft();
 }
 
 void    GameEntity::moveRight()
 {
-    this->ship->moveRight();
+    this->pShip->moveRight();
 }
 
 void    GameEntity::moveUp()
 {
-    this->ship->moveUp();
+    this->pShip->moveUp();
 }
 
 void    GameEntity::moveDown()
 {
-    this->ship->moveDown();
+    this->pShip->moveDown();
 }
 
 void    GameEntity::shoots()
 {
-    this->ship->shootsMissile();
-    mvwprintw(this->gameScreen, LINES - 8, this->ship->getPositionX(), "*");
-    mvwprintw(this->gameScreen, LINES - 8, this->ship->getPositionX() + 5, "*");
+    this->pShip->shootsMissile();
+    mvwprintw(this->gameScreen, LINES - 8, this->pShip->getPositionX(), "*");
+    mvwprintw(this->gameScreen, LINES - 8, this->pShip->getPositionX() + 5, "*");
 }
 
 int     GameEntity::getHealth()
 {
-    return this->ship->getHealth();
+    return this->pShip->getHealth();
 }
 
 void    GameEntity::updateMissiles() // Permet de scanner a chaque tour de boucle les missiles existants et les deplace

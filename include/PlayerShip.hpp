@@ -7,11 +7,6 @@
 
 class PlayerShip : public IShip {
 private:
-    std::string name1 = "^ /\\ ^";
-    std::string name2 = "| ll |";
-    std::string name3 = "vv";
-    int         positionX;
-    int         positionY;
     
 public:
     PlayerShip();
@@ -20,21 +15,26 @@ public:
 
     ~PlayerShip();
 
+    void            changesWeapon(Weapon *newWeap);
+
     // Getters
     int     getPositionX(void);
     int     getPositionY(void);
     int     getHealth(void);
-    
-    void    printShip (WINDOW *win, const PlayerShip &);
-    
-    // Inheritance functions
+        
+    // Actions
     void    shootsMissile(void);
     void    moveLeft(void);
     void    moveRight(void);
     void    moveUp(void);
     void    moveDown(void);
-
+    void    getsDamage(int dmg);
     void    dies(void);
+
+    // Display
+    void    printShip (WINDOW *win, const PlayerShip &);
+
+
 };
 
 
