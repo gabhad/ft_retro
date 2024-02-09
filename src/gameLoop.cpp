@@ -28,6 +28,7 @@ void    resize_screen(GameEntity &Game)
 
 void    gameLoop(GameEntity &Game)
 {
+        timeout(100);
         while (1) {
         while (Game.checkSize())
             resize_screen(Game);
@@ -41,7 +42,7 @@ void    gameLoop(GameEntity &Game)
         int i = getch();
         if (i == 27)
             break;
-        playerAction(Game, i);
+        if (i != ERR)
+            playerAction(Game, i);
     }
-
 }
