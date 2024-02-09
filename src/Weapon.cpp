@@ -18,7 +18,4 @@ void    Weapon::shoots(int damage, std::string direction, int x, int y)
     (void)miss;
 }
 
-int     Weapon::getDamage(void)
-{
-    return this->damage;
-}
+int     Weapon::getDamage(void) { return this->damage; }

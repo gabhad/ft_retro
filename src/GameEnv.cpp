@@ -6,20 +6,8 @@ GameEnv &GameEnv::operator=(const GameEnv &) {return *this;}
 
 GameEnv::~GameEnv() {}
 
-int GameEnv::returnTime(void)
-{
-    return this->time;
-}
-int GameEnv::returnScore(void)
-{
-    return this->score;
-}
+int     GameEnv::returnTime(void) { return this->time; }
+int     GameEnv::returnScore(void) { return this->score; }
 
-void    GameEnv::updateTime(void)
-{
-    this->time = 100 - (std::time(NULL) - this->CLOCK);
-}
-void    GameEnv::updateScore(int n)
-{
-    this->score += n;
-}
+void    GameEnv::updateTime(void) { this->time = 100 - (std::time(NULL) - this->CLOCK); }
+void    GameEnv::updateScore(int n) { this->score += n; }

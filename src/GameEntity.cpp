@@ -43,25 +43,10 @@ void    GameEntity::printShip(void)
         this->eShips->printShip(this->gameScreen, this->eShips[i]);
 }
 
-void    GameEntity::moveLeft()
-{
-    this->pShip->moveLeft();
-}
-
-void    GameEntity::moveRight()
-{
-    this->pShip->moveRight();
-}
-
-void    GameEntity::moveUp()
-{
-    this->pShip->moveUp();
-}
-
-void    GameEntity::moveDown()
-{
-    this->pShip->moveDown();
-}
+void    GameEntity::moveLeft() { this->pShip->moveLeft(); }
+void    GameEntity::moveRight() { this->pShip->moveRight(); }
+void    GameEntity::moveUp() { this->pShip->moveUp(); }
+void    GameEntity::moveDown() { this->pShip->moveDown(); }
 
 void    GameEntity::shoots()
 {
@@ -70,10 +55,7 @@ void    GameEntity::shoots()
     mvwprintw(this->gameScreen, LINES - 8, this->pShip->getPositionX() + 5, "*");
 }
 
-int     GameEntity::getHealth()
-{
-    return this->pShip->getHealth();
-}
+int     GameEntity::getHealth() { return this->pShip->getHealth(); }
 
 void    GameEntity::updateMissiles() // Permet de scanner a chaque tour de boucle les missiles existants et les deplace
 {
@@ -83,20 +65,7 @@ void    GameEntity::updateMissiles() // Permet de scanner a chaque tour de boucl
     // => appliquer dommage sur le vaisseau
 }
 
-int GameEntity::returnTime(void)
-{
-    return this->Env->returnTime();
-}
-int GameEntity::returnScore(void)
-{
-    return this->Env->returnScore();
-}
-
-void    GameEntity::updateTime(void)
-{
-    this->Env->updateTime();
-}
-void    GameEntity::updateScore(int n)
-{
-    this->Env->updateScore(n);
-}
+int     GameEntity::returnTime(void) { return this->Env->returnTime(); }
+int     GameEntity::returnScore(void) { return this->Env->returnScore(); }
+void    GameEntity::updateTime(void) { this->Env->updateTime(); }
+void    GameEntity::updateScore(int n) { this->Env->updateScore(n); }
