@@ -29,7 +29,7 @@ void    EnemyShip::printShip(WINDOW *win, const EnemyShip &e)
         return;
     mvwprintw(win, e.positionY, e.positionX, "%s", this->name1.c_str());
     mvwprintw(win, e.positionY + 1, e.positionX, "%s", this->name2.c_str());
-    mvwprintw(win, e.positionY + 2, e.positionX + 2, "%s", this->name3.c_str());
+    mvwprintw(win, e.positionY + 2, e.positionX, "%s", this->name3.c_str());
 }
 
 void    EnemyShip::shootsMissile(void)
