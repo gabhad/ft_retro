@@ -1,12 +1,7 @@
 #include "GameEnv.hpp"
 
-GameEnv::GameEnv()
-{
-    this->score = 0;
-    this->time = 100;
-}
-
-GameEnv::GameEnv(const GameEnv &) {}
+GameEnv::GameEnv() : score(0), time(100), CLOCK(std::time(NULL)) {}
+GameEnv::GameEnv(const GameEnv &g) : score(g.score), time(g.time), CLOCK(g.CLOCK) {}
 GameEnv &GameEnv::operator=(const GameEnv &) {return *this;}
 
 GameEnv::~GameEnv() {}
@@ -22,7 +17,7 @@ int GameEnv::returnScore(void)
 
 void    GameEnv::updateTime(void)
 {
-    this->time -= 1;
+    this->time = 100 - (std::time(NULL) - this->CLOCK);
 }
 void    GameEnv::updateScore(int n)
 {

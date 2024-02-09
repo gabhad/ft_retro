@@ -9,5 +9,6 @@ void    check_term_size(void);
 void    start_game(void);
 void    updateATH(GameEntity &Game);
 void    gameLoop(GameEntity &Game);
+void    playerAction(GameEntity &Game, int i);
 
-#endif
+#endif  // FT_RETRO_HPP

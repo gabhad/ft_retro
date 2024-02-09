@@ -1,6 +1,5 @@
 #include "ft_retro.hpp"
 #include "GameEntity.hpp"
-#include "GameEnv.hpp"
 #include <ncurses.h>
 
 void    start_game(void) {
