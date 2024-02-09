@@ -8,5 +8,6 @@
 void    check_term_size(void);
 void    start_game(void);
 void    updateATH(GameEntity &Game);
+void    gameLoop(GameEntity &Game);
 
 #endif

@@ -3,8 +3,9 @@ CFLAGS = -g -Wall -Wextra -Werror -std=c++20
 LDFLAGS = -lncurses
 INCLUDES = include/
 SRC = src/main.cpp \
-		src/launch_screen.cpp \
-		src/game_mechanics.cpp \
+		src/launchScreen.cpp \
+		src/startGame.cpp \
+		src/gameLoop.cpp \
 		src/updateATH.cpp \
 		src/BackgroundElement.cpp \
 		src/EnemyShip.cpp \
