@@ -13,8 +13,6 @@ void    printElements(GameEntity &Game)
 
 void    updateATH(GameEntity &Game)
 {
-    if (Game.returnTime() <= 0)
-        endGame(Game);
     printElements(Game);
     Game.updateTime();
 }

@@ -19,7 +19,7 @@ EnemyShip::EnemyShip()
 EnemyShip::EnemyShip(const EnemyShip &p) : IShip(p) {(void)p;}
 EnemyShip &EnemyShip::operator=(const EnemyShip &p) {(void)p; return *this;}
 
-EnemyShip::~EnemyShip() {}
+EnemyShip::~EnemyShip() { delete weap; }
 
 int     EnemyShip::getPositionX(void) { return this->positionX; }
 int     EnemyShip::getPositionY(void) { return this->positionY; }

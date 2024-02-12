@@ -45,7 +45,7 @@ void    gameLoop(GameEntity &Game)
         drawBox(Game.gameScreen);
 
         int i = getch();
-        if (i == 27)
+        if (i == 27 || Game.returnTime() <= 0)
             break;
         if (i != ERR)
             playerAction(Game, i);

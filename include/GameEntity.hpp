@@ -9,7 +9,7 @@
 class GameEntity {
 private:
     PlayerShip  *pShip;
-    EnemyShip   eShips[20];
+    EnemyShip   *eShips;
     GameEnv     *Env;
     int         sizeLine;
     int         sizeCols;

@@ -1,6 +1,6 @@
 #include "GameEntity.hpp"
 
-GameEntity::GameEntity(WINDOW *ath, WINDOW *gameScreen) 
+GameEntity::GameEntity(WINDOW *ath, WINDOW *gameScreen)
 {
     this->ath = ath;
     this->gameScreen = gameScreen;
@@ -13,11 +13,7 @@ GameEntity::GameEntity(WINDOW *ath, WINDOW *gameScreen)
     GameEnv     *Env = new GameEnv;
     this->Env = Env;
 
-    for (int i = 0; i < 20; i++)
-    {
-        EnemyShip   *eShip = new EnemyShip;
-        this->eShips[i] = *eShip;
-    }
+    eShips = new EnemyShip[20];
 }
 
 GameEntity::GameEntity(const GameEntity &G) {(void)G;}
@@ -27,6 +23,7 @@ GameEntity::~GameEntity()
 {
     delete this->pShip;
     delete this->Env;
+    delete[] this->eShips;
 }
 
 bool    GameEntity::checkSize(void)
