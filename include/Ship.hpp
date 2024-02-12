@@ -21,7 +21,6 @@ public:
 
     virtual ~IShip();
 
-    
     // Getters
     virtual int     getPositionX(void) = 0;
     virtual int     getPositionY(void) = 0;
@@ -29,9 +28,6 @@ public:
 
     // Actions
     virtual void    shootsMissile(void) = 0;
-    virtual void    moveLeft(void) = 0;
-    virtual void    moveRight(void) = 0;
-    virtual void    moveDown(void) = 0;
     virtual void    dies(void) = 0;
     virtual void    getsDamage(int dmg) = 0;
 

@@ -12,6 +12,12 @@ GameEntity::GameEntity(WINDOW *ath, WINDOW *gameScreen)
 
     GameEnv     *Env = new GameEnv;
     this->Env = Env;
+
+    for (int i = 0; i < 20; i++)
+    {
+        EnemyShip   *eShip = new EnemyShip;
+        this->eShips[i] = *eShip;
+    }
 }
 
 GameEntity::GameEntity(const GameEntity &G) {(void)G;}
@@ -47,6 +53,15 @@ void    GameEntity::moveLeft() { this->pShip->moveLeft(); }
 void    GameEntity::moveRight() { this->pShip->moveRight(); }
 void    GameEntity::moveUp() { this->pShip->moveUp(); }
 void    GameEntity::moveDown() { this->pShip->moveDown(); }
+void    GameEntity::moveEnemies()
+{
+    if (this->returnTime() % 4 == 2 || this->returnTime() % 4 == 3)
+        for(int i = 0; i < 20; i++)
+            this->eShips[i].moveDownRight();
+    else
+        for(int i = 0; i < 20; i++)
+            this->eShips[i].moveDownLeft();
+}
 
 void    GameEntity::shoots()
 {

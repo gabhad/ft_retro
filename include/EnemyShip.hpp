@@ -7,7 +7,8 @@
 
 class EnemyShip : public IShip{
 private:
-    bool    isDead;
+    bool        isDead;
+    static int  count;
 public:
     EnemyShip();
     EnemyShip(const EnemyShip &);
@@ -23,10 +24,9 @@ public:
     void    printShip (WINDOW *win, const EnemyShip &);
 
     // Actions
+    void    moveDownRight(void);
+    void    moveDownLeft(void);
     void    shootsMissile(void);
-    void    moveLeft(void);
-    void    moveRight(void);
-    void    moveDown(void);
     void    getsDamage(int dmg);
     void    dies(void);
 

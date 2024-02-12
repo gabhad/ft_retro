@@ -5,12 +5,15 @@ EnemyShip::EnemyShip()
     this->name1 = "u-u";
     this->name2 = "|o|";
     this->name3 = "v v";
-    this->positionX = COLS / 2 - 2;
-    this->positionY = 3;
     Weapon  *weap = new Weapon(3, -1);
     this->weap = weap;
     this->health = 5;
     this->isDead = 0;
+
+    this->positionX = (count % 5) * (COLS / 5) + 5;
+    this->positionY = 11 - (count / 5) * 5;
+
+    count++;
 }
 
 EnemyShip::EnemyShip(const EnemyShip &p) : IShip(p) {(void)p;}
@@ -37,22 +40,13 @@ void    EnemyShip::shootsMissile(void)
     this->weap->shoots(this->weap->getDamage(), "DOWN", this->positionX, this->positionY);
 }
 
-void    EnemyShip::moveLeft(void) {
-    this->positionX -= 3;
-    if (this->positionX <= 1)
-        this->positionX = 1;
+void    EnemyShip::moveDownRight(void) {
+    this->positionX += 2;
+    this->positionY += 2;
 }
-
-void    EnemyShip::moveRight(void) {
-    this->positionX += 3;
-    if (this->positionX >= COLS - 7)
-        this->positionX = COLS - 7;
-}
-
-void    EnemyShip::moveDown(void) {
-    this->positionY += 1;
-    if (this->positionY >= LINES - 7)
-        this->positionY = LINES - 7;
+void    EnemyShip::moveDownLeft(void) {
+    this->positionX -= 2;
+    this->positionY += 2;
 }
 
 void    EnemyShip::getsDamage(int dmg) {
@@ -66,3 +60,5 @@ void    EnemyShip::dies(void)
     // XXX coder fonction explosion
     this->isDead = 1;
 }
+
+int     EnemyShip::count = 0;

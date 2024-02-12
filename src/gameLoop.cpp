@@ -29,12 +29,17 @@ void    resize_screen(GameEntity &Game)
 void    gameLoop(GameEntity &Game)
 {
         timeout(100);
+        time_t  lastMoveTime = time(nullptr);
         while (1) {
         while (Game.checkSize())
             resize_screen(Game);
         clear();
         Game.printShip();
         Game.updateMissiles();
+        if (time(nullptr) - lastMoveTime >= 2) {
+            Game.moveEnemies();
+            lastMoveTime = time(nullptr);  // Met à jour le dernier temps de déplacement
+        }
         updateATH(Game);
         drawBox(Game.ath);
         drawBox(Game.gameScreen);

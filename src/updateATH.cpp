@@ -1,4 +1,5 @@
 #include "GameEntity.hpp"
+#include "ft_retro.hpp"
 #include "ncurses.h"
 
 void    printElements(GameEntity &Game)
@@ -13,9 +14,7 @@ void    printElements(GameEntity &Game)
 void    updateATH(GameEntity &Game)
 {
     if (Game.returnTime() <= 0)
-    {
-        // XXX GAME OVER screen
-    }
+        endGame(Game);
     printElements(Game);
     Game.updateTime();
 }

@@ -8,6 +8,7 @@ SRC = src/main.cpp \
 		src/gameLoop.cpp \
 		src/updateATH.cpp \
 		src/playerAction.cpp \
+		src/endGame.cpp \
 		src/BackgroundElement.cpp \
 		src/EnemyShip.cpp \
 		src/GameEntity.cpp \
