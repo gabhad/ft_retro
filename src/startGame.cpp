@@ -10,7 +10,10 @@ void    start_game(void) {
     gameLoop(*Game);
     delwin(ath) ;
     delwin(gameScreen);
-    endGame(*Game); //XXX reflechir a comment lancer la fonction game over sans entrer dans infinite loop
-                    // ni fuite de memoire
-    delete Game;
+    if (endGame(*Game)) {
+        delete Game;
+        start_game();
+    } 
+    else
+        delete Game;
 }

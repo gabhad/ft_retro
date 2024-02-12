@@ -1,7 +1,7 @@
 #include "GameEntity.hpp"
 #include "ft_retro.hpp"
 
-void    endGame(GameEntity &Game)
+int    endGame(GameEntity &Game)
 {
     while (1) {
         clear();
@@ -16,9 +16,9 @@ void    endGame(GameEntity &Game)
         if (i == 27)
             break;
         else if (i == 32){
-            delete &Game;
-            start_game();
+            return 1;
         }
     }
     clear();
+    return 0;
 }

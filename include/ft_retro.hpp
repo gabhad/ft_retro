@@ -10,6 +10,6 @@ void    start_game(void);
 void    updateATH(GameEntity &Game);
 void    gameLoop(GameEntity &Game);
 void    playerAction(GameEntity &Game, int i);
-void    endGame(GameEntity &Game);
+int     endGame(GameEntity &Game);
 
 #endif  // FT_RETRO_HPP
