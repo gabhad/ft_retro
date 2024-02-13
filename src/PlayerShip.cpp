@@ -11,13 +11,10 @@ PlayerShip::PlayerShip() {
     this->health = 5;
 }
 
-PlayerShip::PlayerShip(const PlayerShip &p) : IShip(p) {(void) p;}
-PlayerShip &PlayerShip::operator=(const PlayerShip &p) {(void) p; return *this;}
+PlayerShip::PlayerShip(const PlayerShip &p) : IShip(p) { (void) p; }
+PlayerShip &PlayerShip::operator=(const PlayerShip &p) { (void) p; return *this; }
 
-PlayerShip::~PlayerShip() 
-{
-    delete this->weap;
-}
+PlayerShip::~PlayerShip() { delete this->weap; }
 
 int     PlayerShip::getPositionX(void) { return this->positionX; }
 int     PlayerShip::getPositionY(void) { return this->positionY; }
@@ -53,7 +50,11 @@ void    PlayerShip::getsDamage(int dmg) {
         this->dies();
 }
 
-void    PlayerShip::dies(void) {}
+void    PlayerShip::dies(void) 
+{
+    // XXX Coder fonction explosion du vaisseau
+    // XXX renvoyer vers game over
+}
 
 void    PlayerShip::printShip(WINDOW *win, const PlayerShip &p) 
 {

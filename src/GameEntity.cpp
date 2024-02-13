@@ -47,7 +47,7 @@ void    GameEntity::moveLeft() { this->pShip->moveLeft(); }
 void    GameEntity::moveRight() { this->pShip->moveRight(); }
 void    GameEntity::moveUp() { this->pShip->moveUp(); }
 void    GameEntity::moveDown() { this->pShip->moveDown(); }
-void    GameEntity::moveEnemies()
+time_t  GameEntity::moveEnemies()
 {
     if (this->returnTime() % 4 == 2 || this->returnTime() % 4 == 3)
         for(int i = 0; i < 30; i++)
@@ -55,6 +55,7 @@ void    GameEntity::moveEnemies()
     else
         for(int i = 0; i < 30; i++)
             this->eShips[i].moveDownLeft();
+    return time(nullptr);
 }
 
 void    GameEntity::shoots()

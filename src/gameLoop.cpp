@@ -36,10 +36,8 @@ void    gameLoop(GameEntity &Game)
         clear();
         Game.printShips();
         Game.updateMissiles();
-        if (time(nullptr) - lastMoveTime >= 2) {
-            Game.moveEnemies();
-            lastMoveTime = time(nullptr);  // Met à jour le dernier temps de déplacement
-        }
+        if (time(nullptr) - lastMoveTime >= 2)
+            lastMoveTime = Game.moveEnemies();
         updateATH(Game);
         drawBox(Game.ath);
         drawBox(Game.gameScreen);

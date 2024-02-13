@@ -17,6 +17,7 @@ public:
 
     void    shoots(int dmg, std::string direction, int x, int y);
     int     getDamage(void);
+    void    out_of_ammo(void);
 };
 
 #endif  // WEAPON_HPP

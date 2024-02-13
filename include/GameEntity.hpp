@@ -34,7 +34,7 @@ public:
     void    moveRight(void);
     void    moveUp(void);
     void    moveDown(void);
-    void    moveEnemies(void);
+    time_t  moveEnemies(void);
     void    shoots(void);
     int     getHealth(void);
 
