@@ -4,15 +4,11 @@ GameEntity::GameEntity(WINDOW *ath, WINDOW *gameScreen)
 {
     this->ath = ath;
     this->gameScreen = gameScreen;
-    this->sizeLine = LINES;
-    this->sizeCols = COLS;
+    sizeLine = LINES;
+    sizeCols = COLS;
     
-    PlayerShip  *ship = new PlayerShip;
-    this->pShip = ship;
-
-    GameEnv     *Env = new GameEnv;
-    this->Env = Env;
-
+    pShip = new PlayerShip;
+    Env = new GameEnv;
     eShips = new EnemyShip[20];
 }
 
@@ -39,7 +35,7 @@ void    GameEntity::getSize(void)
             "Votre jeu est actuellement configure pour %d lignes et %d colonnes", this->sizeLine, this->sizeCols);
 }
 
-void    GameEntity::printShip(void)
+void    GameEntity::printShips(void)
 {
     this->pShip->printShip(this->gameScreen, *(this->pShip));
     for (int i = 0; i < 20; i++)

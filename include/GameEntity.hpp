@@ -29,7 +29,7 @@ public:
     void    getSize(void);
 
     // Ship Functions
-    void    printShip(void);
+    void    printShips(void);
     void    moveLeft(void);
     void    moveRight(void);
     void    moveUp(void);

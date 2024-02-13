@@ -41,12 +41,12 @@ void    EnemyShip::shootsMissile(void)
 }
 
 void    EnemyShip::moveDownRight(void) {
-    this->positionX += 2;
-    this->positionY += 2;
+    this->positionX += 5;
+    this->positionY += 1;
 }
 void    EnemyShip::moveDownLeft(void) {
-    this->positionX -= 2;
-    this->positionY += 2;
+    this->positionX -= 5;
+    this->positionY += 1;
 }
 
 void    EnemyShip::getsDamage(int dmg) {

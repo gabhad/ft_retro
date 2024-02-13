@@ -9,5 +9,5 @@ GameEnv::~GameEnv() {}
 int     GameEnv::returnTime(void) { return this->time; }
 int     GameEnv::returnScore(void) { return this->score; }
 
-void    GameEnv::updateTime(void) { this->time = 5 - (std::time(NULL) - this->CLOCK); }
+void    GameEnv::updateTime(void) { this->time = 100 - (std::time(NULL) - this->CLOCK); }
 void    GameEnv::updateScore(int n) { this->score += n; }

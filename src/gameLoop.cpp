@@ -34,7 +34,7 @@ void    gameLoop(GameEntity &Game)
         while (Game.checkSize())
             resize_screen(Game);
         clear();
-        Game.printShip();
+        Game.printShips();
         Game.updateMissiles();
         if (time(nullptr) - lastMoveTime >= 2) {
             Game.moveEnemies();

@@ -13,6 +13,8 @@ void    start_game(void) {
     if (endGame(*Game)) {
         delete Game;
         start_game();
+        endwin();
+        initscr();
     } 
     else
         delete Game;
