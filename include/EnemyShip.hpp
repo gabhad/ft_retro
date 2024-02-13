@@ -30,6 +30,8 @@ public:
     void    getsDamage(int dmg);
     void    dies(void);
 
+    void    resetCount(void);
+
 };
 
 #endif  // ENEMY_SHIP_HPP

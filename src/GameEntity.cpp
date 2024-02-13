@@ -9,7 +9,8 @@ GameEntity::GameEntity(WINDOW *ath, WINDOW *gameScreen)
     
     pShip = new PlayerShip;
     Env = new GameEnv;
-    eShips = new EnemyShip[20];
+    eShips = new EnemyShip[30];
+    this->eShips->resetCount();
 }
 
 GameEntity::GameEntity(const GameEntity &G) {(void)G;}
@@ -38,7 +39,7 @@ void    GameEntity::getSize(void)
 void    GameEntity::printShips(void)
 {
     this->pShip->printShip(this->gameScreen, *(this->pShip));
-    for (int i = 0; i < 20; i++)
+    for (int i = 0; i < 30; i++)
         this->eShips->printShip(this->gameScreen, this->eShips[i]);
 }
 
@@ -49,10 +50,10 @@ void    GameEntity::moveDown() { this->pShip->moveDown(); }
 void    GameEntity::moveEnemies()
 {
     if (this->returnTime() % 4 == 2 || this->returnTime() % 4 == 3)
-        for(int i = 0; i < 20; i++)
+        for(int i = 0; i < 30; i++)
             this->eShips[i].moveDownRight();
     else
-        for(int i = 0; i < 20; i++)
+        for(int i = 0; i < 30; i++)
             this->eShips[i].moveDownLeft();
 }
 
