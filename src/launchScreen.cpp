@@ -1,6 +1,6 @@
-#include <string.h>
 #include "ft_retro.hpp"
 #include <stdlib.h>
+#include <string.h>
 
 void    launch_screen3() {
     const char  *msg = "Déplacez vous avec les flèches directionnelles";
@@ -27,7 +27,6 @@ void    launch_screen3() {
     clear();
     start_game();
 }
-
 void    launch_screen2() {
     const char  *msg = "ft_retro est un jeu de science-fiction dans l'espace";
     const char  *msg2 = "Votre but est de détruire les vaisseaux adverses";
@@ -56,7 +55,6 @@ void    launch_screen2() {
     clear();
     launch_screen3();
 }
-
 void    launch_screen() {
     const char  *msg = "Vérification effectuée, votre expérience peut commencer";
     int         taille = strlen(msg);
@@ -73,7 +71,6 @@ void    launch_screen() {
     clear();
     launch_screen2();
 }
-
 void    check_term_size() {
     const char  *msg = "Merci d'agrandir votre terminal pour profiter";
     const char  *msg2= "d'une meilleur expérience de jeu";

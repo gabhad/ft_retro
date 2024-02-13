@@ -36,6 +36,8 @@ void    GameEntity::getSize(void)
             "Votre jeu est actuellement configure pour %d lignes et %d colonnes", this->sizeLine, this->sizeCols);
 }
 
+// Imprime le vaisseau du joueur puis les vaisseaux ennemis. 
+// Verifie ensuite s'il y a collision et le temps depuis la derniere pour donner damage
 void    GameEntity::printShips(void)
 {
     this->pShip->printShip(this->gameScreen, *(this->pShip));
@@ -50,11 +52,26 @@ void    GameEntity::moveDown() { this->pShip->moveDown(); }
 time_t  GameEntity::moveEnemies()
 {
     if (this->returnTime() % 4 == 2 || this->returnTime() % 4 == 3)
-        for(int i = 0; i < 30; i++)
+        for(int i = 0; i < 30; i++) {
             this->eShips[i].moveDownRight();
+            // XXX inserer collision lors du movement
+            // if (this->eShips[i].getPositionX() >= this->pShip->getPositionX()
+            //     && this->eShips[i].getPositionX() <= this->pShip->getPositionX() + 6
+            //     && this->eShips[i].getPositionY() >= this->pShip->getPositionY()
+            //     && this->eShips[i].getPositionY() >= this->pShip->getPositionY() + 3
+            //     && time(nullptr) - this->pShip->getLastDamage() > 2)
+            //     this->pShip->getsDamage(1);
+        }
     else
-        for(int i = 0; i < 30; i++)
+        for(int i = 0; i < 30; i++) {
             this->eShips[i].moveDownLeft();
+            // if (this->eShips[i].getPositionX() >= this->pShip->getPositionX()
+            //     && this->eShips[i].getPositionX() <= this->pShip->getPositionX() + 6
+            //     && this->eShips[i].getPositionY() >= this->pShip->getPositionY()
+            //     && this->eShips[i].getPositionY() >= this->pShip->getPositionY() + 3
+            //     && time(nullptr) - this->pShip->getLastDamage() > 2)
+            //     this->pShip->getsDamage(1);
+        }
     return time(nullptr);
 }
 

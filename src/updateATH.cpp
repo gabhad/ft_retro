@@ -8,7 +8,7 @@ void    printElements(GameEntity &Game)
     mvwprintw(Game.ath, 1, COLS/2 - 5, "TIME= %d", Game.returnTime());
     mvwprintw(Game.ath, 1, COLS - 15, "LIVES= ");
     for (int i = 0; i < Game.getHealth(); i++)
-        mvwprintw(Game.ath, 1, COLS - 4 - i, "X");
+        mvwprintw(Game.ath, 1, COLS - 8 + i, "X");
 }
 
 void    updateATH(GameEntity &Game)

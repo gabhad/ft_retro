@@ -2,12 +2,14 @@
 # define PLAYER_SHIP_HPP
 
 #include <string>
+#include <ctime>
+#include <ncurses.h>
 #include "Weapon.hpp"
 #include "Ship.hpp"
 
 class PlayerShip : public IShip {
 private:
-    
+    time_t  lastDamage;
 public:
     PlayerShip();
     PlayerShip(const PlayerShip &);
@@ -21,6 +23,7 @@ public:
     int     getPositionX(void);
     int     getPositionY(void);
     int     getHealth(void);
+    time_t  getLastDamage(void);
         
     // Actions
     void    shootsMissile(void);

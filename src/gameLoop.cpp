@@ -1,12 +1,13 @@
 #include "ft_retro.hpp"
 #include "GameEntity.hpp"
 
-void    drawBox(WINDOW *win)
+void    drawBox(GameEntity &Game)
 {
-    box(win, 0, 0);
-    wrefresh(win);
+    box(Game.ath, 0, 0);
+    box(Game.gameScreen, 0, 0);
+    wrefresh(Game.ath);
+    wrefresh(Game.gameScreen);
 }
-
 void    resize_screen(GameEntity &Game)
 {
     clear();
@@ -39,13 +40,12 @@ void    gameLoop(GameEntity &Game)
         if (time(nullptr) - lastMoveTime >= 2)
             lastMoveTime = Game.moveEnemies();
         updateATH(Game);
-        drawBox(Game.ath);
-        drawBox(Game.gameScreen);
+        drawBox(Game);
 
         int i = getch();
-        if (i == 27 || Game.returnTime() <= 0)
+        if (i == 27 || Game.returnTime() < 0)
             break;
-        if (i != ERR)
+        else if (i != ERR)
             playerAction(Game, i);
     }
 }

@@ -19,25 +19,23 @@ PlayerShip::~PlayerShip() { delete this->weap; }
 int     PlayerShip::getPositionX(void) { return this->positionX; }
 int     PlayerShip::getPositionY(void) { return this->positionY; }
 int     PlayerShip::getHealth(void) { return this->health; }
+time_t  PlayerShip::getLastDamage(void) { return this->lastDamage; }
 
 void    PlayerShip::moveLeft(void) {
     this->positionX -= 3;
     if (this->positionX <= 1)
         this->positionX = 1;
 }
-
 void    PlayerShip::moveRight(void) {
     this->positionX += 3;
     if (this->positionX >= COLS - 7)
         this->positionX = COLS - 7;
 }
-
 void    PlayerShip::moveUp(void) {
     this->positionY -= 1;
     if (this->positionY <= 1)
         this->positionY = 1;
 }
-
 void    PlayerShip::moveDown(void) {
     this->positionY += 1;
     if (this->positionY >= LINES - 7)
@@ -48,10 +46,13 @@ void    PlayerShip::getsDamage(int dmg) {
         this->health -= dmg;
     if (this->health <= 0)
         this->dies();
+    lastDamage = time(nullptr);
+    // XXX ajouter fonction scintillement vaisseau
 }
 
 void    PlayerShip::dies(void) 
 {
+    this->name1 = "MORTXX";
     // XXX Coder fonction explosion du vaisseau
     // XXX renvoyer vers game over
 }
