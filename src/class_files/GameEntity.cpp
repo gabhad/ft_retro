@@ -1,4 +1,5 @@
 #include "GameEntity.hpp"
+#include "Missile.hpp"
 
 GameEntity::GameEntity(WINDOW *ath, WINDOW *gameScreen)
 {

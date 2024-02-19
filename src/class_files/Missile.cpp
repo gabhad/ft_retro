@@ -1,4 +1,5 @@
 #include "Missile.hpp"
+#include "GameEntity.hpp"
 
 Missile::Missile(int dmg, std::string dir, int x, int y)
 {

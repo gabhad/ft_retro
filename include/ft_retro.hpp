@@ -2,7 +2,6 @@
 # define FT_RETRO_HPP
 
 #include <ncurses.h>
-
 #include "GameEntity.hpp"
 
 void    check_term_size(void);

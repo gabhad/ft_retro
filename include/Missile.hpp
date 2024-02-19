@@ -3,8 +3,9 @@
 
 #include <string>
 
-#include "GameEntity.hpp"
 #include "Ship.hpp"
+
+class GameEntity;
 
 class Missile {
 private:

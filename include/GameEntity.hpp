@@ -5,7 +5,8 @@
 #include "PlayerShip.hpp"
 #include "EnemyShip.hpp"
 #include "GameEnv.hpp"
-#include "Missile.hpp"
+
+class Missile;
 
 class GameEntity {
 private:
