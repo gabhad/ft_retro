@@ -31,6 +31,7 @@ public:
     int     getPShipY(void);
     int     getEShipX(int i);
     int     getEShipY(int i);
+    time_t  getPShipLastDamage(void);
 
     // Ship Functions
     void    printShips(void);
@@ -41,6 +42,7 @@ public:
     time_t  moveEnemies(void);
     void    shoots(void);
     int     getHealth(void);
+    void    getsDamage(int dmg);
 
     void    updateMissiles(void);
 

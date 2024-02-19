@@ -4,9 +4,9 @@ EnemyShip::EnemyShip()
 {
     this->name1 = "o-o";
     this->name2 = "v v";
-    Weapon  *weap = new Weapon(3, -1);
+    Weapon  *weap = new Weapon(1, -1);
     this->weap = weap;
-    this->health = 5;
+    this->health = 3;
     this->isDead = 0;
 
     this->positionX = (count % 10) * ((COLS - 10)/ 9) + 5;

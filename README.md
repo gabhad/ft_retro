@@ -10,3 +10,7 @@ Update 19.02.24 :
 Working on collision program
 
 Next up : missile shooting by player and enemy ships
+Next + : score
+Maybe : add new weapons
+Maybe + : add external objects
+Maybe ++ : add boss fights + level design

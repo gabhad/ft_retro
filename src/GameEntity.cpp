@@ -40,21 +40,20 @@ int GameEntity::getPShipX(void)
 {
     return this->pShip->getPositionX();
 }
-
 int GameEntity::getPShipY(void)
 {
     return this->pShip->getPositionY();
 }
-
 int GameEntity::getEShipX(int i)
 {
     return this->eShips[i].getPositionX();
 }
-
 int GameEntity::getEShipY(int i)
 {
     return this->eShips[i].getPositionY();
 }
+
+time_t GameEntity::getPShipLastDamage(void) { return this->pShip->getLastDamage(); }
 
 // Imprime le vaisseau du joueur puis les vaisseaux ennemis. 
 // Verifie ensuite s'il y a collision et le temps depuis la derniere pour donner damage
@@ -103,6 +102,12 @@ void    GameEntity::shoots()
 }
 
 int     GameEntity::getHealth() { return this->pShip->getHealth(); }
+
+void    GameEntity::getsDamage(int dmg)
+{
+    if (time(nullptr) - this->getPShipLastDamage() > 2)
+        this->pShip->getsDamage(dmg);
+}
 
 void    GameEntity::updateMissiles() // Permet de scanner a chaque tour de boucle les missiles existants et les deplace
 {

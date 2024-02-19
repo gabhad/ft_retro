@@ -1,4 +1,4 @@
-#include "ft_retro.hpp"
+#include "GameEntity.hpp"
 
 void    collisionCheck(GameEntity &Game)
 {
