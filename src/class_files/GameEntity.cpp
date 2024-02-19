@@ -10,6 +10,12 @@ GameEntity::GameEntity(WINDOW *ath, WINDOW *gameScreen)
     pShip = new PlayerShip;
     Env = new GameEnv;
     eShips = new EnemyShip[30];
+
+    pMissile = new Missile[10];
+    for (int i = 0; i < 10; ++i) { pMissile[i] = Missile(0, "UP", 0, 0); }
+    eMissile = new Missile [50];
+    for (int i = 0; i < 50; ++i) { eMissile[i] = Missile(0, "DOWN", 0, 0); }
+
     this->eShips->resetCount();
 }
 
@@ -55,8 +61,6 @@ int GameEntity::getEShipY(int i)
 
 time_t GameEntity::getPShipLastDamage(void) { return this->pShip->getLastDamage(); }
 
-// Imprime le vaisseau du joueur puis les vaisseaux ennemis. 
-// Verifie ensuite s'il y a collision et le temps depuis la derniere pour donner damage
 void    GameEntity::printShips(void)
 {
     this->pShip->printShip(this->gameScreen, *(this->pShip));
@@ -79,14 +83,7 @@ time_t  GameEntity::moveEnemies()
     return time(nullptr);
 }
 
-void    GameEntity::shoots()
-{
-    this->pShip->shootsMissile();
-    mvwprintw(this->gameScreen, LINES - 8, this->pShip->getPositionX(), "*");
-    mvwprintw(this->gameScreen, LINES - 8, this->pShip->getPositionX() + 5, "*");
-
-    // XXX a reecrire
-}
+void    GameEntity::shoots() { this->pShip->shootsMissile(); } // XXX reflechir a comment ecrire
 
 int     GameEntity::getHealth() { return this->pShip->getHealth(); }
 
@@ -98,10 +95,8 @@ void    GameEntity::getsDamage(int dmg)
 
 void    GameEntity::updateMissiles() // Permet de scanner a chaque tour de boucle les missiles existants et les deplace
 {
-    // Stocker tous les missiles tires dans un array de missiles, avec leurs coordonnees
-    // Les avancer selon leur direction de 1 a chaque iteration
-    // Si LINES du missile = LINES d'un vaisseau 
-    // => appliquer dommage sur le vaisseau
+    for (int i = 0; i < 10; i++) { this->pMissile[i].updateMissiles(); }
+    for (int i = 0; i < 50; i++) { this->eMissile[i].updateMissiles(); }
 }
 
 int     GameEntity::returnTime(void) { return this->Env->returnTime(); }

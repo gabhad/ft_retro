@@ -10,6 +10,7 @@
 class PlayerShip : public IShip {
 private:
     time_t  lastDamage;
+    time_t  lastShot;
 public:
     PlayerShip();
     PlayerShip(const PlayerShip &);

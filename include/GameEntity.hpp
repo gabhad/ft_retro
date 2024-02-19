@@ -5,12 +5,17 @@
 #include "PlayerShip.hpp"
 #include "EnemyShip.hpp"
 #include "GameEnv.hpp"
+#include "Missile.hpp"
 
 class GameEntity {
 private:
     PlayerShip  *pShip;
     EnemyShip   *eShips;
     GameEnv     *Env;
+
+    Missile     *pMissile;
+    Missile     *eMissile;
+
     int         sizeLine;
     int         sizeCols;
 

@@ -29,7 +29,7 @@ void    resize_screen(GameEntity &Game)
 
 void    gameLoop(GameEntity &Game)
 {
-        timeout(100);
+        timeout(200);
         time_t  lastMoveTime = time(nullptr);
         while (1) {
         while (Game.checkSize())

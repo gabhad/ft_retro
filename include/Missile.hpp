@@ -13,6 +13,7 @@ private:
     int         x;
     int         y;
 public:
+    Missile();
     Missile(int, std::string, int, int);
     Missile(const Missile &);
     Missile &operator=(const Missile &);
@@ -20,8 +21,11 @@ public:
     ~Missile();
 
     void    dealsDamage(IShip *ship);
-    void    printMissile(Missile &, GameEntity &);
-    void    updateMissiles(Missile &);
+    void    printMissile(GameEntity &);
+    void    updateMissiles();
+
+    // Getter
+    int     getDamage();
 };
 
 #endif  // MISSILE_HPP
