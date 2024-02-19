@@ -71,26 +71,11 @@ void    GameEntity::moveDown() { this->pShip->moveDown(); }
 time_t  GameEntity::moveEnemies()
 {
     if (this->returnTime() % 4 == 2 || this->returnTime() % 4 == 3)
-        for(int i = 0; i < 30; i++) {
+        for(int i = 0; i < 30; i++)
             this->eShips[i].moveDownRight();
-            // XXX inserer collision lors du movement
-            // if (this->eShips[i].getPositionX() >= this->pShip->getPositionX()
-            //     && this->eShips[i].getPositionX() <= this->pShip->getPositionX() + 6
-            //     && this->eShips[i].getPositionY() >= this->pShip->getPositionY()
-            //     && this->eShips[i].getPositionY() >= this->pShip->getPositionY() + 3
-            //     && time(nullptr) - this->pShip->getLastDamage() > 2)
-            //     this->pShip->getsDamage(1);
-        }
     else
-        for(int i = 0; i < 30; i++) {
+        for(int i = 0; i < 30; i++)
             this->eShips[i].moveDownLeft();
-            // if (this->eShips[i].getPositionX() >= this->pShip->getPositionX()
-            //     && this->eShips[i].getPositionX() <= this->pShip->getPositionX() + 6
-            //     && this->eShips[i].getPositionY() >= this->pShip->getPositionY()
-            //     && this->eShips[i].getPositionY() >= this->pShip->getPositionY() + 3
-            //     && time(nullptr) - this->pShip->getLastDamage() > 2)
-            //     this->pShip->getsDamage(1);
-        }
     return time(nullptr);
 }
 
@@ -99,6 +84,8 @@ void    GameEntity::shoots()
     this->pShip->shootsMissile();
     mvwprintw(this->gameScreen, LINES - 8, this->pShip->getPositionX(), "*");
     mvwprintw(this->gameScreen, LINES - 8, this->pShip->getPositionX() + 5, "*");
+
+    // XXX a reecrire
 }
 
 int     GameEntity::getHealth() { return this->pShip->getHealth(); }

@@ -58,12 +58,32 @@ void    PlayerShip::dies(void)
 
 void    PlayerShip::printShip(WINDOW *win, const PlayerShip &p) 
 {
+    if (time(nullptr) - this->getLastDamage() < 3)
+    {
+        mvwprintw(win, p.positionY - 1, p.positionX, "*");
+        mvwprintw(win, p.positionY - 1, p.positionX + 2, "*");
+        mvwprintw(win, p.positionY - 1, p.positionX + 3, "*");
+        mvwprintw(win, p.positionY, p.positionX + 3, "*");
+        mvwprintw(win, p.positionY + 1, p.positionX + 3, "*");
+        mvwprintw(win, p.positionY + 2, p.positionX + 3, "*");
+        mvwprintw(win, p.positionY + 2, p.positionX + 2, "*");
+        mvwprintw(win, p.positionY + 2, p.positionX, "*");
+        mvwprintw(win, p.positionY + 2, p.positionX - 1, "*");
+        mvwprintw(win, p.positionY + 1, p.positionX - 1, "*");
+        mvwprintw(win, p.positionY, p.positionX - 1, "*");
+        mvwprintw(win, p.positionY - 1, p.positionX - 1, "*");
+    }
+
     mvwprintw(win, p.positionY, p.positionX, "%s", this->name1.c_str());
     mvwprintw(win, p.positionY + 1, p.positionX, "%s", this->name2.c_str());
 }
 
+
+// Can shoot only when not affected by damage
 void    PlayerShip::shootsMissile(void)
 {
+    if (time(nullptr) - this->getLastDamage() < 3)
+        return;
     this->weap->shoots(this->weap->getDamage(), "UP", this->positionX, this->positionY);
 }
 
