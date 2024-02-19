@@ -7,9 +7,10 @@ It executes with the ncurses library, and plays in the terminal with the use of 
 It is intended for educational purposes, to display the uses and good practice of an object oriented program.
 
 Update 19.02.24 :
-Working on collision program
+Next up : missile shooting by player and enemy ships. Design the missile initialization process
 
-Next up : missile shooting by player and enemy ships
+
+
 Next + : score
 Maybe : add new weapons
 Maybe + : add external objects
