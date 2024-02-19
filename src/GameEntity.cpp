@@ -36,6 +36,26 @@ void    GameEntity::getSize(void)
             "Votre jeu est actuellement configure pour %d lignes et %d colonnes", this->sizeLine, this->sizeCols);
 }
 
+int GameEntity::getPShipX(void)
+{
+    return this->pShip->getPositionX();
+}
+
+int GameEntity::getPShipY(void)
+{
+    return this->pShip->getPositionY();
+}
+
+int GameEntity::getEShipX(int i)
+{
+    return this->eShips[i].getPositionX();
+}
+
+int GameEntity::getEShipY(int i)
+{
+    return this->eShips[i].getPositionY();
+}
+
 // Imprime le vaisseau du joueur puis les vaisseaux ennemis. 
 // Verifie ensuite s'il y a collision et le temps depuis la derniere pour donner damage
 void    GameEntity::printShips(void)

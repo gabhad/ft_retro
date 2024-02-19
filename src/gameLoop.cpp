@@ -36,9 +36,10 @@ void    gameLoop(GameEntity &Game)
             resize_screen(Game);
         clear();
         Game.printShips();
-        Game.updateMissiles();
         if (time(nullptr) - lastMoveTime >= 2)
             lastMoveTime = Game.moveEnemies();
+        collisionCheck(Game);
+        Game.updateMissiles(); // XXX a definir
         updateATH(Game);
         drawBox(Game);
 

@@ -1,9 +1,8 @@
 #include "PlayerShip.hpp"
 
 PlayerShip::PlayerShip() {
-    this->name1 = "^ /\\ ^";
-    this->name2 = "| ll |";
-    this->name3 = "vv";
+    this->name1 = "^ ^";
+    this->name2 = "l-l";
     this->positionX = COLS / 2 - 2;
     this->positionY = LINES - 8;
     Weapon  *weap = new Weapon(3, -1);
@@ -28,8 +27,8 @@ void    PlayerShip::moveLeft(void) {
 }
 void    PlayerShip::moveRight(void) {
     this->positionX += 3;
-    if (this->positionX >= COLS - 7)
-        this->positionX = COLS - 7;
+    if (this->positionX >= COLS - 4)
+        this->positionX = COLS - 4;
 }
 void    PlayerShip::moveUp(void) {
     this->positionY -= 1;
@@ -38,8 +37,8 @@ void    PlayerShip::moveUp(void) {
 }
 void    PlayerShip::moveDown(void) {
     this->positionY += 1;
-    if (this->positionY >= LINES - 7)
-        this->positionY = LINES - 7;
+    if (this->positionY >= LINES - 6)
+        this->positionY = LINES - 6;
 }
 
 void    PlayerShip::getsDamage(int dmg) {
@@ -61,7 +60,6 @@ void    PlayerShip::printShip(WINDOW *win, const PlayerShip &p)
 {
     mvwprintw(win, p.positionY, p.positionX, "%s", this->name1.c_str());
     mvwprintw(win, p.positionY + 1, p.positionX, "%s", this->name2.c_str());
-    mvwprintw(win, p.positionY + 2, p.positionX + 2, "%s", this->name3.c_str());
 }
 
 void    PlayerShip::shootsMissile(void)

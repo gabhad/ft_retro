@@ -27,6 +27,10 @@ public:
     // Getters
     bool    checkSize(void);
     void    getSize(void);
+    int     getPShipX(void);
+    int     getPShipY(void);
+    int     getEShipX(int i);
+    int     getEShipY(int i);
 
     // Ship Functions
     void    printShips(void);

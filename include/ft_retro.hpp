@@ -11,5 +11,6 @@ void    updateATH(GameEntity &Game);
 void    gameLoop(GameEntity &Game);
 void    playerAction(GameEntity &Game, int i);
 int     endGame(GameEntity &Game);
+void    collisionCheck(GameEntity &Game);
 
 #endif  // FT_RETRO_HPP
