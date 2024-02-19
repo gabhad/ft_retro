@@ -9,14 +9,15 @@ SRC = src/main.cpp \
 		src/updateATH.cpp \
 		src/playerAction.cpp \
 		src/endGame.cpp \
-		src/BackgroundElement.cpp \
-		src/EnemyShip.cpp \
-		src/GameEntity.cpp \
-		src/GameEnv.cpp \
-		src/Missile.cpp \
-		src/PlayerShip.cpp \
-		src/Ship.cpp \
-		src/Weapon.cpp 
+		src/collisionCheck.cpp \
+		src/class_files/BackgroundElement.cpp \
+		src/class_files/EnemyShip.cpp \
+		src/class_files/GameEntity.cpp \
+		src/class_files/GameEnv.cpp \
+		src/class_files/Missile.cpp \
+		src/class_files/PlayerShip.cpp \
+		src/class_files/Ship.cpp \
+		src/class_files/Weapon.cpp 
 TARGET = ft_retro
 
 all: $(TARGET)
