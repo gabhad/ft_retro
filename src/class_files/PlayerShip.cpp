@@ -1,19 +1,18 @@
 #include "PlayerShip.hpp"
 
 PlayerShip::PlayerShip() {
-    this->name1 = "^ ^";
-    this->name2 = "l-l";
-    this->positionX = COLS / 2 - 2;
-    this->positionY = LINES - 8;
-    Weapon  *weap = new Weapon(3, -1);
-    this->weap = weap;
-    this->health = 5;
+    name1 = "^ ^";
+    name2 = "l-l";
+    positionX = COLS / 2 - 1;
+    positionY = LINES - 8;
+    weap = new Weapon(3, -1);
+    health = 5;
 }
 
 PlayerShip::PlayerShip(const PlayerShip &p) : IShip(p) { (void) p; }
 PlayerShip &PlayerShip::operator=(const PlayerShip &p) { (void) p; return *this; }
 
-PlayerShip::~PlayerShip() { delete this->weap; }
+PlayerShip::~PlayerShip() { delete weap; }
 
 int     PlayerShip::getPositionX(void) { return this->positionX; }
 int     PlayerShip::getPositionY(void) { return this->positionY; }
@@ -46,7 +45,6 @@ void    PlayerShip::getsDamage(int dmg) {
     if (this->health <= 0)
         this->dies();
     lastDamage = time(nullptr);
-    // XXX ajouter fonction scintillement vaisseau
 }
 
 void    PlayerShip::dies(void) 
