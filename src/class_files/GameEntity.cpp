@@ -1,6 +1,8 @@
 #include "GameEntity.hpp"
 #include "Missile.hpp"
 
+#include <iostream>
+
 GameEntity::GameEntity(WINDOW *ath, WINDOW *gameScreen)
 {
     this->ath = ath;
@@ -88,10 +90,9 @@ time_t  GameEntity::moveEnemies()
 
 void    GameEntity::shoots() {
     int i = 0;
-    while (pMissile[i].getDamage() > 0)
-        i++;
+    while (pMissile[i].getDamage() > 0) { i++; }
     pMissile[i].setDamage(pShip->shootsMissile());
-    pMissile[i].setCoord(getPShipX(), getPShipY());
+    pMissile[i].setCoord(getPShipX(), getPShipY() - 1);
 }
 
 int     GameEntity::getHealth() { return this->pShip->getHealth(); }
@@ -110,7 +111,8 @@ void    GameEntity::updateMissiles()
 
 void GameEntity::printMissile(void)
 {
-    for (int i = 0; i < 10; i++) { pMissile[i].printMissile(*this); }
+    for (int i = 0; i < 10; i++) { 
+        pMissile[i].printMissile(*this); }
 }
 
 int     GameEntity::returnTime(void) { return this->Env->returnTime(); }
