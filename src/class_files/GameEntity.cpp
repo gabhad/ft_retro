@@ -102,7 +102,7 @@ void    GameEntity::getsDamage(int dmg)
         this->pShip->getsDamage(dmg);
 }
 
-void    GameEntity::updateMissiles() // Permet de scanner a chaque tour de boucle les missiles existants et les deplace
+void    GameEntity::updateMissiles()
 {
     for (int i = 0; i < 10; i++) { this->pMissile[i].updateMissiles(); }
     for (int i = 0; i < 50; i++) { this->eMissile[i].updateMissiles(); }

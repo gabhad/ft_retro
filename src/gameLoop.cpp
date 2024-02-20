@@ -40,7 +40,7 @@ void    gameLoop(GameEntity &Game)
             lastMoveTime = Game.moveEnemies();
         collisionCheck(Game);
         Game.printMissile();
-        Game.updateMissiles(); // XXX a definir
+        Game.updateMissiles();
         updateATH(Game);
         drawBox(Game);
 

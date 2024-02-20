@@ -32,11 +32,7 @@ void    EnemyShip::printShip(WINDOW *win, const EnemyShip &e)
     mvwprintw(win, e.positionY + 1, e.positionX, "%s", this->name2.c_str());
 }
 
-int     EnemyShip::shootsMissile(void)
-{
-    this->weap->shoots(this->weap->getDamage(), "DOWN", this->positionX, this->positionY);
-    return weap->getDamage();
-}
+int     EnemyShip::shootsMissile(void) { return weap->getDamage(); }
 
 void    EnemyShip::moveDownRight(void) {
     this->positionX += 3;
