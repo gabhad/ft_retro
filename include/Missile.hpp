@@ -27,6 +27,10 @@ public:
 
     // Getter
     int     getDamage();
+
+    // Setter
+    void    setDamage(int dmg);
+    void    setCoord(int x, int y);
 };
 
 #endif  // MISSILE_HPP

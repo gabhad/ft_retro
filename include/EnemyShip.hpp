@@ -26,7 +26,7 @@ public:
     // Actions
     void    moveDownRight(void);
     void    moveDownLeft(void);
-    void    shootsMissile(void);
+    int     shootsMissile(void);
     void    getsDamage(int dmg);
     void    dies(void);
 

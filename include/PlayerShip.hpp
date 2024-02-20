@@ -27,7 +27,7 @@ public:
     time_t  getLastDamage(void);
         
     // Actions
-    void    shootsMissile(void);
+    int     shootsMissile(void);
     void    moveLeft(void);
     void    moveRight(void);
     void    moveUp(void);

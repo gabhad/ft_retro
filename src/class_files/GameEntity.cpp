@@ -25,9 +25,11 @@ GameEntity &GameEntity::operator=(const GameEntity &G) {(void) G; return *this;}
 
 GameEntity::~GameEntity() 
 {
-    delete this->pShip;
-    delete this->Env;
-    delete[] this->eShips;
+    delete pShip;
+    delete Env;
+    delete[] eShips;
+    delete[] pMissile;
+    delete[] eMissile;
 }
 
 bool    GameEntity::checkSize(void)
@@ -84,7 +86,13 @@ time_t  GameEntity::moveEnemies()
     return time(nullptr);
 }
 
-void    GameEntity::shoots() { this->pShip->shootsMissile(); } // XXX reflechir a comment ecrire
+void    GameEntity::shoots() {
+    int i = 0;
+    while (pMissile[i].getDamage() > 0)
+        i++;
+    pMissile[i].setDamage(pShip->shootsMissile());
+    pMissile[i].setCoord(getPShipX(), getPShipY());
+}
 
 int     GameEntity::getHealth() { return this->pShip->getHealth(); }
 

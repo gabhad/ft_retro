@@ -58,7 +58,7 @@ void    PlayerShip::dies(void)
 
 void    PlayerShip::printShip(WINDOW *win, const PlayerShip &p) 
 {
-    if (time(nullptr) - this->getLastDamage() < 2)
+    if (time(nullptr) - this->lastDamage < 2)
     {
         mvwprintw(win, p.positionY - 1, p.positionX, "*");
         mvwprintw(win, p.positionY - 1, p.positionX + 2, "*");
@@ -79,11 +79,12 @@ void    PlayerShip::printShip(WINDOW *win, const PlayerShip &p)
 }
 
 // Can shoot only when not affected by damage
-void    PlayerShip::shootsMissile(void)
+int     PlayerShip::shootsMissile(void)
 {
     if (time(nullptr) - this->lastDamage < 2 || time(nullptr) - this->lastShot < 2)
-        return;
+        return 0;
     this->weap->shoots(this->weap->getDamage(), "UP", this->positionX, this->positionY);
     this->lastShot = time(nullptr);
+    return weap->getDamage();
 }
 
