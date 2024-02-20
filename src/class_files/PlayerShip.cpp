@@ -83,7 +83,7 @@ int     PlayerShip::shootsMissile(void)
 {
     if (time(nullptr) - this->lastDamage < 2 || time(nullptr) - this->lastShot < 2)
         return 0;
-    this->weap->shoots(this->weap->getDamage(), "UP", this->positionX, this->positionY);
+    this->weap->shoots();
     this->lastShot = time(nullptr);
     return weap->getDamage();
 }

@@ -39,6 +39,7 @@ void    gameLoop(GameEntity &Game)
         if (time(nullptr) - lastMoveTime >= 2)
             lastMoveTime = Game.moveEnemies();
         collisionCheck(Game);
+        Game.printMissile();
         Game.updateMissiles(); // XXX a definir
         updateATH(Game);
         drawBox(Game);

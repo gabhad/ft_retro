@@ -15,8 +15,9 @@ public:
 
     ~Weapon();
 
-    void    shoots(int dmg, std::string direction, int x, int y);
+    void    shoots(void);
     int     getDamage(void);
+    int     getAmmo(void);
     void    out_of_ammo(void);
 };
 

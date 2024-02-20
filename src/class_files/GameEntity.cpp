@@ -108,6 +108,11 @@ void    GameEntity::updateMissiles() // Permet de scanner a chaque tour de boucl
     for (int i = 0; i < 50; i++) { this->eMissile[i].updateMissiles(); }
 }
 
+void GameEntity::printMissile(void)
+{
+    for (int i = 0; i < 10; i++) { pMissile[i].printMissile(*this); }
+}
+
 int     GameEntity::returnTime(void) { return this->Env->returnTime(); }
 int     GameEntity::returnScore(void) { return this->Env->returnScore(); }
 void    GameEntity::updateTime(void) { this->Env->updateTime(); }

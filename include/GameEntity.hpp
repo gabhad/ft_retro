@@ -51,6 +51,7 @@ public:
     void    getsDamage(int dmg);
 
     void    updateMissiles(void);
+    void    printMissile(void);
 
     // ATH Functions
     int     returnTime(void);

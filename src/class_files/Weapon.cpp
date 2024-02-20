@@ -12,16 +12,17 @@ Weapon &Weapon::operator=(const Weapon &) {return *this;}
 
 Weapon::~Weapon() {}
 
-void    Weapon::shoots(int damage, std::string direction, int x, int y)
+void    Weapon::shoots(void)
 {
-    Missile *miss = new Missile(damage, direction, x, y);
-    if (this->ammo >= 0)
-        this->ammo -= 1;
-    if (this-> ammo == 0)
-        this->out_of_ammo(); // XXX a coder si besoin
-    (void)miss;
+    if (ammo == 0) {
+        out_of_ammo(); // XXX a coder si besoin
+        return;
+    }
+    if (ammo >= 0)
+        ammo -= 1;
 }
 
 int     Weapon::getDamage(void) { return this->damage; }
+int     Weapon::getAmmo(void) { return this-> ammo; }
 
 void    Weapon::out_of_ammo(void) {}
