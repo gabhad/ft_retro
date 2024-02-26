@@ -15,15 +15,17 @@ GameEntity::GameEntity(WINDOW *ath, WINDOW *gameScreen)
     eShips = new EnemyShip[30];
 
     pMissile = new Missile[10];
-    for (int i = 0; i < 10; i++) { pMissile[i] = Missile(0, "UP", 0, 0); }
+    for (int i = 0; i < 10; i++) {pMissile[i] = Missile(5, "UP", 30, 30);}
     eMissile = new Missile [50];
-    for (int i = 0; i < 50; i++) { eMissile[i] = Missile(0, "DOWN", 0, 0); }
+    for (int i = 0; i < 50; i++) {eMissile[i] = Missile(5, "DOWN", 20, 20);}
 
     this->eShips->resetCount();
 }
 
 GameEntity::GameEntity(const GameEntity &G) {(void)G;}
-GameEntity &GameEntity::operator=(const GameEntity &G) {(void) G; return *this;}
+GameEntity &GameEntity::operator=(const GameEntity &G) {
+    (void) G; return *this;
+    }
 
 GameEntity::~GameEntity() 
 {
@@ -64,7 +66,9 @@ int GameEntity::getEShipY(int i)
     return this->eShips[i].getPositionY();
 }
 
-time_t GameEntity::getPShipLastDamage(void) { return this->pShip->getLastDamage(); }
+time_t GameEntity::getPShipLastDamage(void) {
+    return this->pShip->getLastDamage(); 
+}
 
 void    GameEntity::printShips(void)
 {
@@ -109,6 +113,9 @@ void GameEntity::printMissile(void)
 {
     for (int i = 0; i < 10; i++) { 
         pMissile[i].printMissile(*this); }
+    for (int i = 0; i < 50; i++) { 
+        eMissile[i].printMissile(*this); }
+
 }
 
 int     GameEntity::getHealth() { return this->pShip->getHealth(); }
