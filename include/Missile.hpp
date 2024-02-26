@@ -3,8 +3,6 @@
 
 #include <string>
 
-#include "Ship.hpp"
-
 class GameEntity;
 
 class Missile {
@@ -21,7 +19,6 @@ public:
 
     ~Missile();
 
-    void    dealsDamage(IShip *ship);
     void    printMissile(GameEntity &);
     void    updateMissiles();
 

@@ -79,9 +79,9 @@ void    PlayerShip::printShip(WINDOW *win, const PlayerShip &p)
 // Can shoot only when not affected by damage
 int     PlayerShip::shootsMissile(void)
 {
-    if (time(nullptr) - this->lastDamage < 2 || time(nullptr) - this->lastShot < 2 || weap->getAmmo() == 0)
-        return 0;
-    this->weap->shoots();
+//    if (time(nullptr) - this->lastDamage < 2 || time(nullptr) - this->lastShot < 2 || weap->getAmmo() == 0)
+//        return 0;
+//    this->weap->shoots();
     this->lastShot = time(nullptr);
     return weap->getDamage();
 }

@@ -1,13 +1,8 @@
 #include "Weapon.hpp"
 #include "Missile.hpp"
 
-Weapon::Weapon(int dmg, int ammo) 
-{
-    this->damage = dmg;
-    this->ammo = ammo;
-}
-
-Weapon::Weapon(const Weapon &) {}
+Weapon::Weapon(int dmg, int ammo) : damage(dmg), ammo(ammo) {}
+Weapon::Weapon(const Weapon &w) : damage(w.damage), ammo(w.ammo) {}
 Weapon &Weapon::operator=(const Weapon &) {return *this;}
 
 Weapon::~Weapon() {}

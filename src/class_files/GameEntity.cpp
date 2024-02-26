@@ -15,9 +15,9 @@ GameEntity::GameEntity(WINDOW *ath, WINDOW *gameScreen)
     eShips = new EnemyShip[30];
 
     pMissile = new Missile[10];
-    for (int i = 0; i < 10; ++i) { pMissile[i] = Missile(0, "UP", 0, 0); }
+    for (int i = 0; i < 10; i++) { pMissile[i] = Missile(0, "UP", 0, 0); }
     eMissile = new Missile [50];
-    for (int i = 0; i < 50; ++i) { eMissile[i] = Missile(0, "DOWN", 0, 0); }
+    for (int i = 0; i < 50; i++) { eMissile[i] = Missile(0, "DOWN", 0, 0); }
 
     this->eShips->resetCount();
 }
@@ -90,9 +90,25 @@ time_t  GameEntity::moveEnemies()
 
 void    GameEntity::shoots() {
     int i = 0;
-    while (pMissile[i].getDamage() > 0) { i++; }
+    while (pMissile[i].getDamage() > 0) 
+        i++;
     pMissile[i].setDamage(pShip->shootsMissile());
     pMissile[i].setCoord(getPShipX(), getPShipY() - 1);
+}
+
+void    GameEntity::updateMissiles()
+{
+    for (int i = 0; i < 10; i++) { 
+        this->pMissile[i].updateMissiles();
+        this->eMissile[i].updateMissiles();
+    }
+    for (int i = 10; i < 50; i++) { this->eMissile[i].updateMissiles(); }
+}
+
+void GameEntity::printMissile(void)
+{
+    for (int i = 0; i < 10; i++) { 
+        pMissile[i].printMissile(*this); }
 }
 
 int     GameEntity::getHealth() { return this->pShip->getHealth(); }
@@ -101,18 +117,6 @@ void    GameEntity::getsDamage(int dmg)
 {
     if (time(nullptr) - this->getPShipLastDamage() > 2)
         this->pShip->getsDamage(dmg);
-}
-
-void    GameEntity::updateMissiles()
-{
-    for (int i = 0; i < 10; i++) { this->pMissile[i].updateMissiles(); }
-    for (int i = 0; i < 50; i++) { this->eMissile[i].updateMissiles(); }
-}
-
-void GameEntity::printMissile(void)
-{
-    for (int i = 0; i < 10; i++) { 
-        pMissile[i].printMissile(*this); }
 }
 
 int     GameEntity::returnTime(void) { return this->Env->returnTime(); }

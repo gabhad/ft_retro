@@ -5,8 +5,8 @@
 
 class Weapon {
 private:
-    int damage;
-    int ammo;
+    const int   damage;
+    int         ammo;
 
 public:
     Weapon(int dmg, int ammo);

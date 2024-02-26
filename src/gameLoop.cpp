@@ -1,5 +1,6 @@
 #include "ft_retro.hpp"
 #include "GameEntity.hpp"
+#include "Missile.hpp"
 
 void    drawBox(GameEntity &Game)
 {
@@ -29,7 +30,7 @@ void    resize_screen(GameEntity &Game)
 
 void    gameLoop(GameEntity &Game)
 {
-        timeout(5000);
+        timeout(100);
         time_t  lastMoveTime = time(nullptr);
         while (1) {
         while (Game.checkSize())
