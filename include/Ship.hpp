@@ -8,7 +8,6 @@ class IShip {
 protected:
     std::string name1;
     std::string name2;
-    std::string name3;
     int         positionX;
     int         positionY;
     int         health;

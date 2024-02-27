@@ -14,7 +14,6 @@ EnemyShip::EnemyShip()
 
     count++;
 }
-
 EnemyShip::EnemyShip(const EnemyShip &p) : IShip(p) { (void)p; }
 EnemyShip &EnemyShip::operator=(const EnemyShip &p) { (void)p; return *this; }
 
@@ -26,10 +25,10 @@ int     EnemyShip::getHealth(void) { return this->health; }
 
 void    EnemyShip::printShip(WINDOW *win, const EnemyShip &e) 
 {
-    if (this->isDead)
-        return;
-    mvwprintw(win, e.positionY, e.positionX, "%s", this->name1.c_str());
-    mvwprintw(win, e.positionY + 1, e.positionX, "%s", this->name2.c_str());
+ //   if (!this->isDead) {
+        mvwprintw(win, e.positionY, e.positionX, "%s", this->name1.c_str());
+        mvwprintw(win, e.positionY + 1, e.positionX, "%s", this->name2.c_str());
+  //  }
 }
 
 int     EnemyShip::shootsMissile(void) { return weap->getDamage(); }
@@ -53,6 +52,7 @@ void    EnemyShip::dies(void)
 {
     // XXX coder fonction explosion
     this->isDead = 1;
+    this->name1 = "MORTXX";
 }
 
 void    EnemyShip::resetCount(void) { this->count = 0; }
