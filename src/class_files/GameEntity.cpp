@@ -95,11 +95,11 @@ time_t  GameEntity::moveEnemies()
 void    GameEntity::shoots() {
     int i = 0;
     if (int dmg = pShip->shootsMissile()) {
-        while (pMissile[i].getDamage() > 0) 
-            i++;
-        pMissile[i].setDamage(dmg);
-        pMissile[i].setCoord(getPShipX(), getPShipY() - 1);
-        pMissile[i].setDirection("UP");
+        if (pMissile[i].getDamage() == 0) {
+            pMissile[i].setDamage(dmg);
+            pMissile[i].setCoord(getPShipX(), getPShipY() - 1);
+            pMissile[i].setDirection("UP");
+        }
     }
 }
 
@@ -124,6 +124,26 @@ void GameEntity::printMissile(void)
     for (int i = 0; i < 50; i++) { 
         eMissile[i].printMissile(*this); }
 
+}
+
+void    GameEntity::checkMissileCollision(void)
+{
+    for (int i = 0; i < 10; i++)
+    {
+        if (pMissile[i].getDamage())
+        {
+            for (int j = 0; j < 30; j++)
+            {
+                if (pMissile[i].getMissX() >= eShips[j].getPositionX() - 2 
+                    && pMissile[i].getMissX() <= eShips[j].getPositionX() + 2
+                    && pMissile[i].getMissY() == eShips[j].getPositionY() + 1)
+                    {
+                        eShips[j].getsDamage(pMissile[i].getDamage());
+                        pMissile[i].setDamage(0);
+                    } 
+            }
+        }
+    }
 }
 
 int     GameEntity::getHealth() { return this->pShip->getHealth(); }

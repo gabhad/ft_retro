@@ -55,9 +55,6 @@ void    EnemyShip::dies(void)
     this->isDead = 1;
 }
 
-void    EnemyShip::resetCount(void)
-{
-    this->count = 0;
-}
+void    EnemyShip::resetCount(void) { this->count = 0; }
 
 int     EnemyShip::count = 0;

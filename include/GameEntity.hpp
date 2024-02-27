@@ -14,7 +14,7 @@ private:
     EnemyShip   *eShips;
     GameEnv     *Env;
 
-//    Missile     *pMissile;
+    Missile     *pMissile;
     Missile     *eMissile;
 
     int         sizeLine;
@@ -24,10 +24,7 @@ public:
     GameEntity(WINDOW *ath, WINDOW *gameScreen);
     GameEntity(const GameEntity &);
     GameEntity &operator=(const GameEntity &);
-
     ~GameEntity();
-
-    Missile     *pMissile;
 
     WINDOW    *ath;
     WINDOW    *gameScreen;
@@ -54,6 +51,7 @@ public:
 
     void    updateMissiles(void);
     void    printMissile(void);
+    void    checkMissileCollision(void);
 
     // ATH Functions
     int     returnTime(void);

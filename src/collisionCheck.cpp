@@ -8,7 +8,8 @@ void    collisionCheck(GameEntity &Game)
             && Game.getPShipY() >= Game.getEShipY(i) - 1 && Game.getPShipY() <= Game.getEShipY(i) + 1)
         {
             Game.getsDamage(1);
-            return;
+            break;
         }
     }
+    Game.checkMissileCollision();
 }

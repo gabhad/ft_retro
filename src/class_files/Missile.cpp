@@ -40,6 +40,7 @@ void    Missile::updateMissiles()
 }
 
 int     Missile::getDamage() { return damage; }
+int     Missile::getMissX() { return x; }
 int     Missile::getMissY() { return y; }
 
 void    Missile::setDamage(int dmg) { this->damage = dmg; }
