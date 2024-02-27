@@ -94,20 +94,27 @@ time_t  GameEntity::moveEnemies()
 
 void    GameEntity::shoots() {
     int i = 0;
-    while (pMissile[i].getDamage() > 0) 
-        i++;
-    pMissile[i].setDamage(pShip->shootsMissile());
-    pMissile[i].setCoord(getPShipX(), getPShipY() - 1);
-    pMissile[i].setDirection("UP");
+    if (int dmg = pShip->shootsMissile()) {
+        while (pMissile[i].getDamage() > 0) 
+            i++;
+        pMissile[i].setDamage(dmg);
+        pMissile[i].setCoord(getPShipX(), getPShipY() - 1);
+        pMissile[i].setDirection("UP");
+    }
 }
 
 void    GameEntity::updateMissiles()
 {
     for (int i = 0; i < 10; i++) { 
         this->pMissile[i].updateMissiles();
-        this->eMissile[i].updateMissiles();
+        if (this->pMissile[i].getMissY() < 0)
+            this->pMissile[i].setDamage(0);
     }
-    for (int i = 10; i < 50; i++) { this->eMissile[i].updateMissiles(); }
+    for (int i = 0; i < 50; i++) {
+        this->eMissile[i].updateMissiles();
+        if (this->pMissile[i].getMissY() > LINES)
+            this->pMissile[i].setDamage(0);
+        }
 }
 
 void GameEntity::printMissile(void)

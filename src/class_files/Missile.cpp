@@ -39,12 +39,13 @@ void    Missile::updateMissiles()
     // la fonction dealsdamage()
 }
 
-int    Missile::getDamage() { return this->damage; }
+int     Missile::getDamage() { return damage; }
+int     Missile::getMissY() { return y; }
 
-void Missile::setDamage(int dmg) { this->damage = dmg; }
-void Missile::setCoord(int x, int y)
+void    Missile::setDamage(int dmg) { this->damage = dmg; }
+void    Missile::setCoord(int x, int y)
 {
     this->x = x;
     this->y = y;
 }
-void Missile::setDirection(std::string dir) { direction = dir; }
+void    Missile::setDirection(std::string dir) { direction = dir; }

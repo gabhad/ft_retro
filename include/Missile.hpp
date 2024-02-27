@@ -24,6 +24,7 @@ public:
 
     // Getter
     int     getDamage();
+    int     getMissY();
 
     // Setter
     void    setDamage(int dmg);
