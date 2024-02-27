@@ -72,7 +72,7 @@ void    GameEntity::printShips(void)
 {
     this->pShip->printShip(this->gameScreen, *(this->pShip));
     for (int i = 0; i < 30; i++)
-        this->eShips->printShip(this->gameScreen, this->eShips[i]);
+        eShips[i].printShip(this->gameScreen);
 }
 
 void    GameEntity::moveLeft() { this->pShip->moveLeft(); }
@@ -132,8 +132,6 @@ void    GameEntity::checkMissileCollision(void)
                 if (pMissile[i].getMissX() >= eShips[j].getPositionX() - 2 
                     && pMissile[i].getMissX() <= eShips[j].getPositionX() + 2
                     && pMissile[i].getMissY() == eShips[j].getPositionY() + 1) {
-                        printw("Collision detected with eShips[%d]\n", j);
-                        refresh();
                         eShips[j].getsDamage(pMissile[i].getDamage());
                         pMissile[i].setDamage(0);
                         this->updateScore(100);

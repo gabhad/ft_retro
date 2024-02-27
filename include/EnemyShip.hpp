@@ -21,7 +21,7 @@ public:
     int     getPositionY(void);
     int     getHealth(void);
     
-    void    printShip (WINDOW *win, const EnemyShip &);
+    void    printShip (WINDOW *win);
 
     // Actions
     void    moveDownRight(void);

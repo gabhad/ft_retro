@@ -23,11 +23,11 @@ int     EnemyShip::getPositionX(void) { return this->positionX; }
 int     EnemyShip::getPositionY(void) { return this->positionY; }
 int     EnemyShip::getHealth(void) { return this->health; }
 
-void    EnemyShip::printShip(WINDOW *win, const EnemyShip &e) 
+void    EnemyShip::printShip(WINDOW *win) 
 {
  //   if (!this->isDead) {
-        mvwprintw(win, e.positionY, e.positionX, "%s", this->name1.c_str());
-        mvwprintw(win, e.positionY + 1, e.positionX, "%s", this->name2.c_str());
+        mvwprintw(win, this->positionY, this->positionX, "%s", this->name1.c_str());
+        mvwprintw(win, this->positionY + 1, this->positionX, "%s", this->name2.c_str());
   //  }
 }
 
