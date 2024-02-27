@@ -14,7 +14,7 @@ private:
     EnemyShip   *eShips;
     GameEnv     *Env;
 
-    Missile     *pMissile;
+//    Missile     *pMissile;
     Missile     *eMissile;
 
     int         sizeLine;
@@ -26,6 +26,8 @@ public:
     GameEntity &operator=(const GameEntity &);
 
     ~GameEntity();
+
+    Missile     *pMissile;
 
     WINDOW    *ath;
     WINDOW    *gameScreen;

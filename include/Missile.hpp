@@ -28,6 +28,7 @@ public:
     // Setter
     void    setDamage(int dmg);
     void    setCoord(int x, int y);
+    void    setDirection(std::string dir);
 };
 
 #endif  // MISSILE_HPP

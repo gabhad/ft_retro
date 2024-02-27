@@ -42,9 +42,9 @@ void    Missile::updateMissiles()
 int    Missile::getDamage() { return this->damage; }
 
 void Missile::setDamage(int dmg) { this->damage = dmg; }
-
 void Missile::setCoord(int x, int y)
 {
     this->x = x;
     this->y = y;
 }
+void Missile::setDirection(std::string dir) { direction = dir; }

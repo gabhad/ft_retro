@@ -15,9 +15,9 @@ GameEntity::GameEntity(WINDOW *ath, WINDOW *gameScreen)
     eShips = new EnemyShip[30];
 
     pMissile = new Missile[10];
-    for (int i = 0; i < 10; i++) {pMissile[i] = Missile(5, "UP", 30, 30);}
+//    for (int i = 0; i < 10; i++) {pMissile[i] = Missile(0, "UP", 30, 30);}
     eMissile = new Missile [50];
-    for (int i = 0; i < 50; i++) {eMissile[i] = Missile(5, "DOWN", 20, 20);}
+//    for (int i = 0; i < 50; i++) {eMissile[i] = Missile(5, "DOWN", 20, 20);}
 
     this->eShips->resetCount();
 }
@@ -98,6 +98,7 @@ void    GameEntity::shoots() {
         i++;
     pMissile[i].setDamage(pShip->shootsMissile());
     pMissile[i].setCoord(getPShipX(), getPShipY() - 1);
+    pMissile[i].setDirection("UP");
 }
 
 void    GameEntity::updateMissiles()
