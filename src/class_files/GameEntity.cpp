@@ -134,7 +134,7 @@ void    GameEntity::checkMissileCollision(void)
                     && pMissile[i].getMissY() == eShips[j].getPositionY() + 1) {
                         eShips[j].getsDamage(pMissile[i].getDamage());
                         pMissile[i].setDamage(0);
-                        this->updateScore(100);
+                        updateScore(100);
                 } 
             }
         }

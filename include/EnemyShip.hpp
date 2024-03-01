@@ -2,6 +2,7 @@
 # define ENEMY_SHIP_HPP
 
 #include <string>
+#include <ctime>
 
 #include "Ship.hpp"
 
@@ -9,6 +10,8 @@ class EnemyShip : public IShip{
 private:
     bool        isDead;
     static int  count;
+    time_t      lastShot;
+
 public:
     EnemyShip();
     EnemyShip(const EnemyShip &);

@@ -25,21 +25,38 @@ int     EnemyShip::getHealth(void) { return this->health; }
 
 void    EnemyShip::printShip(WINDOW *win) 
 {
- //   if (!this->isDead) {
+    if (!this->isDead) {
         mvwprintw(win, this->positionY, this->positionX, "%s", this->name1.c_str());
         mvwprintw(win, this->positionY + 1, this->positionX, "%s", this->name2.c_str());
-  //  }
+    }
+    else if (positionY < LINES) {
+        mvwprintw(win, this->positionY, this->positionX, "%s", this->name1.c_str());
+        mvwprintw(win, this->positionY + 1, this->positionX, "%s", this->name2.c_str());
+    }
+
 }
 
-int     EnemyShip::shootsMissile(void) { return weap->getDamage(); }
+int     EnemyShip::shootsMissile(void) { return weap->getDamage(); } // XXX
 
 void    EnemyShip::moveDownRight(void) {
-    this->positionX += 3;
-    this->positionY += 1;
+    if (!isDead) {
+        positionX += 3;
+        positionY += 1;
+    }
+    else {
+        if (positionY <= LINES)
+            positionY += 3;
+    }
+
 }
 void    EnemyShip::moveDownLeft(void) {
-    this->positionX -= 3;
-    this->positionY += 1;
+    if (!isDead) {
+        positionX -= 3;
+        positionY += 1;
+    }
+    else
+        if (positionY <= LINES)
+            positionY += 3;
 }
 
 void    EnemyShip::getsDamage(int dmg) {
@@ -50,9 +67,9 @@ void    EnemyShip::getsDamage(int dmg) {
 
 void    EnemyShip::dies(void) 
 {
-    // XXX coder fonction explosion
-    this->isDead = 1;
-    this->name1 = "MORTXX";
+    isDead = 1;
+    name1 = "***";
+    name2 = "***";
 }
 
 void    EnemyShip::resetCount(void) { this->count = 0; }

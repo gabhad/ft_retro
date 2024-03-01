@@ -4,6 +4,7 @@
 #include "Weapon.hpp"
 #include "ncurses.h"
 
+
 class IShip {
 protected:
     std::string name1;
