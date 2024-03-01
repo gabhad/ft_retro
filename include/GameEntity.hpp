@@ -46,6 +46,7 @@ public:
     void    moveDown(void);
     time_t  moveEnemies(void);
     void    shoots(void);
+    void    enemyShoots(void);
     int     getHealth(void);
     void    getsDamage(int dmg);
 

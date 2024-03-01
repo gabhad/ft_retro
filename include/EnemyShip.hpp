@@ -8,9 +8,10 @@
 
 class EnemyShip : public IShip{
 private:
-    bool        isDead;
     static int  count;
     time_t      lastShot;
+
+    void    dies(void);
 
 public:
     EnemyShip();
@@ -18,6 +19,8 @@ public:
     EnemyShip &operator=(const EnemyShip &);
 
     ~EnemyShip();
+
+    bool        isDead;
 
     // Getters
     int     getPositionX(void);
@@ -31,7 +34,6 @@ public:
     void    moveDownLeft(void);
     int     shootsMissile(void);
     void    getsDamage(int dmg);
-    void    dies(void);
 
     void    resetCount(void);
 

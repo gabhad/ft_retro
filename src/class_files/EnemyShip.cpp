@@ -36,7 +36,14 @@ void    EnemyShip::printShip(WINDOW *win)
 
 }
 
-int     EnemyShip::shootsMissile(void) { return weap->getDamage(); } // XXX
+int     EnemyShip::shootsMissile(void) { 
+    if (time(nullptr) - this->lastShot < 2 || time(nullptr) - this->lastShot < 1 || weap->getAmmo() == 0)
+        return 0;
+    this->weap->shoots();
+    this->lastShot = time(nullptr);
+    return weap->getDamage();
+
+ } // XXX
 
 void    EnemyShip::moveDownRight(void) {
     if (!isDead) {
@@ -45,7 +52,7 @@ void    EnemyShip::moveDownRight(void) {
     }
     else {
         if (positionY <= LINES)
-            positionY += 3;
+            positionY += 5;
     }
 
 }
@@ -56,7 +63,7 @@ void    EnemyShip::moveDownLeft(void) {
     }
     else
         if (positionY <= LINES)
-            positionY += 3;
+            positionY += 5;
 }
 
 void    EnemyShip::getsDamage(int dmg) {
@@ -70,6 +77,7 @@ void    EnemyShip::dies(void)
     isDead = 1;
     name1 = "***";
     name2 = "***";
+    count -= 1;
 }
 
 void    EnemyShip::resetCount(void) { this->count = 0; }

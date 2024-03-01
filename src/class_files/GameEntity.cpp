@@ -14,7 +14,7 @@ GameEntity::GameEntity(WINDOW *ath, WINDOW *gameScreen)
     Env = new GameEnv;
     eShips = new EnemyShip[30];
 
-    pMissile = new Missile[10];
+    pMissile = new Missile[5];
     eMissile = new Missile [50];
 
     this->eShips->resetCount();
@@ -101,23 +101,30 @@ void    GameEntity::shoots() {
     }
 }
 
+void GameEntity::enemyShoots(void)
+{
+    for (int i = 0; i < 30; i++)
+        if (!eShips[i].isDead)
+            eShips[i].shootsMissile();
+}
+
 void    GameEntity::updateMissiles()
 {
-    for (int i = 0; i < 10; i++) { 
+    for (int i = 0; i < 5; i++) { 
         this->pMissile[i].updateMissiles();
         if (this->pMissile[i].getMissY() < 0)
             this->pMissile[i].setDamage(0);
     }
     for (int i = 0; i < 50; i++) {
         this->eMissile[i].updateMissiles();
-        if (this->pMissile[i].getMissY() > LINES)
-            this->pMissile[i].setDamage(0);
+        if (this->eMissile[i].getMissY() > LINES)
+            this->eMissile[i].setDamage(0);
         }
 }
 
 void GameEntity::printMissile(void)
 {
-    for (int i = 0; i < 10; i++) { 
+    for (int i = 0; i < 5; i++) { 
         pMissile[i].printMissile(*this); }
     for (int i = 0; i < 50; i++) { 
         eMissile[i].printMissile(*this); }
@@ -126,10 +133,11 @@ void GameEntity::printMissile(void)
 
 void    GameEntity::checkMissileCollision(void)
 {
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 5; i++) {
         if (pMissile[i].getDamage()) {
             for (int j = 0; j < 30; j++) {
-                if (pMissile[i].getMissX() >= eShips[j].getPositionX() - 2 
+                if (!eShips[j].isDead
+                    && pMissile[i].getMissX() >= eShips[j].getPositionX() - 2 
                     && pMissile[i].getMissX() <= eShips[j].getPositionX() + 2
                     && pMissile[i].getMissY() == eShips[j].getPositionY() + 1) {
                         eShips[j].getsDamage(pMissile[i].getDamage());

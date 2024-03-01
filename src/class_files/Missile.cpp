@@ -31,12 +31,9 @@ void    Missile::updateMissiles()
     if (this->damage == 0)
         return;
     if (this->direction == "UP")
-        this->y -= 1;
+        this->y -= 3;
     else if (this->direction == "DOWN")
-        this->y += 1;
-    // XXX ajouter fonction verification si un vaisseau se trouve sur 
-    // la route en utilisant
-    // la fonction dealsdamage()
+        this->y += 3;
 }
 
 int     Missile::getDamage() { return damage; }

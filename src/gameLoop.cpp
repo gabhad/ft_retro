@@ -36,14 +36,15 @@ void    gameLoop(GameEntity &Game)
         while (Game.checkSize())
             resize_screen(Game);
         clear();
+        updateATH(Game);
+        drawBox(Game);
         Game.printShips();
         if (time(nullptr) - lastMoveTime >= 2)
             lastMoveTime = Game.moveEnemies();
+        Game.enemyShoots();
         Game.printMissile();
         collisionCheck(Game);
         Game.updateMissiles();
-        updateATH(Game);
-        drawBox(Game);
 
         int i = getch();
         if (i == 27 || Game.returnTime() < 0)
