@@ -18,6 +18,7 @@ GameEntity::GameEntity(WINDOW *ath, WINDOW *gameScreen)
     eMissile = new Missile [50];
 
     this->eShips->resetCount();
+    this->eShips->resetDeath();
 }
 
 GameEntity::GameEntity(const GameEntity &G) {(void)G;}
@@ -171,8 +172,6 @@ int     GameEntity::returnScore(void) { return this->Env->returnScore(); }
 void    GameEntity::updateTime(void) { this->Env->updateTime(); }
 void    GameEntity::updateScore(int n) { this->Env->updateScore(n); }
 
-bool    GameEntity::isGameOver(void) {
-    if (eShips->getCount() == 0)
-        return 1;
-    return 0;
+int    GameEntity::eShipCount(void) {
+    return eShips->getNumDeath();
 }

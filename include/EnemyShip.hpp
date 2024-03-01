@@ -9,6 +9,7 @@
 class EnemyShip : public IShip{
 private:
     static int  count;
+    static int  numDeath;
     time_t      lastShot;
 
     void    dies(void);
@@ -26,7 +27,7 @@ public:
     int     getPositionX(void);
     int     getPositionY(void);
     int     getHealth(void);
-    int     getCount(void);
+    int     getNumDeath(void);
     
     void    printShip (WINDOW *win);
 
@@ -37,6 +38,7 @@ public:
     void    getsDamage(int dmg);
 
     void    resetCount(void);
+    void    resetDeath(void);
 
 };
 

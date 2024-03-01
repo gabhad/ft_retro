@@ -60,7 +60,7 @@ public:
     void    updateTime(void);
     void    updateScore(int n);
 
-    bool    isGameOver(void);
+    int     eShipCount(void);
 };
 
 #endif  // GAME_ENTITY_HPP

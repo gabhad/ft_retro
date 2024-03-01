@@ -22,7 +22,7 @@ EnemyShip::~EnemyShip() { delete weap; }
 int     EnemyShip::getPositionX(void) { return positionX; }
 int     EnemyShip::getPositionY(void) { return positionY; }
 int     EnemyShip::getHealth(void) { return health; }
-int     EnemyShip::getCount(void) { return count; }
+int     EnemyShip::getNumDeath(void) { return numDeath; }
 
 void    EnemyShip::printShip(WINDOW *win) 
 {
@@ -46,7 +46,6 @@ int     EnemyShip::shootsMissile(void) {
         return weap->getDamage();
     }
     return 0;
-
  }
 
 void    EnemyShip::moveDownRight(void) {
@@ -81,9 +80,11 @@ void    EnemyShip::dies(void)
     isDead = 1;
     name1 = "***";
     name2 = "***";
-    count -= 1;
+    numDeath += 1;
 }
 
-void    EnemyShip::resetCount(void) { this->count = 0; }
+void    EnemyShip::resetCount(void) { count = 0; }
+void    EnemyShip::resetDeath(void) { numDeath = 0; }
 
 int     EnemyShip::count = 0;
+int     EnemyShip::numDeath = 0;

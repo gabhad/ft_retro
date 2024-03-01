@@ -45,9 +45,9 @@ void    gameLoop(GameEntity &Game)
         Game.printMissile();
         collisionCheck(Game);
         Game.updateMissiles();
-
+        
         int i = getch();
-        if (i == 27 || Game.returnTime() < 0 || Game.isGameOver())
+        if (i == 27 || Game.returnTime() < 0 || Game.eShipCount() == 30)
             break;
         else if (i != ERR)
             playerAction(Game, i);
