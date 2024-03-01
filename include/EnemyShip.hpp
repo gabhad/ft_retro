@@ -36,6 +36,7 @@ public:
     void    moveDownLeft(void);
     int     shootsMissile(void);
     void    getsDamage(int dmg);
+    void    dies(void);
 
     void    resetCount(void);
     void    resetDeath(void);

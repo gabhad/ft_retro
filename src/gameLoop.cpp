@@ -45,7 +45,10 @@ void    gameLoop(GameEntity &Game)
         Game.printMissile();
         collisionCheck(Game);
         Game.updateMissiles();
-        
+        if (!Game.getHealth())
+            void;
+            // XXX coder fonction fin de jeu
+
         int i = getch();
         if (i == 27 || Game.returnTime() < 0 || Game.eShipCount() == 30)
             break;

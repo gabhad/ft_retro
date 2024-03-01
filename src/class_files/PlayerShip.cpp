@@ -7,6 +7,7 @@ PlayerShip::PlayerShip() {
     positionY = LINES - 8;
     weap = new Weapon(3, -1);
     health = 5;
+    dead = 0;
 }
 
 PlayerShip::PlayerShip(const PlayerShip &p) : IShip(p) { (void) p; }
@@ -43,16 +44,11 @@ void    PlayerShip::moveDown(void) {
 void    PlayerShip::getsDamage(int dmg) {
         this->health -= dmg;
     if (this->health <= 0)
-        this->dies();
+        dead = 1;
     lastDamage = time(nullptr);
 }
 
-void    PlayerShip::dies(void) 
-{
-    this->name1 = "MORTXX";
-    // XXX Coder fonction explosion du vaisseau
-    // XXX renvoyer vers game over
-}
+bool    PlayerShip::isDead(void) { return dead; }
 
 void    PlayerShip::printShip(WINDOW *win, const PlayerShip &p) 
 {

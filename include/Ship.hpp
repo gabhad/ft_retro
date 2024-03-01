@@ -28,7 +28,6 @@ public:
 
     // Actions
     virtual int     shootsMissile(void) = 0;
-    virtual void    dies(void) = 0;
     virtual void    getsDamage(int dmg) = 0;
 
 };

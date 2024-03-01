@@ -11,6 +11,7 @@ class PlayerShip : public IShip {
 private:
     time_t  lastDamage;
     time_t  lastShot;
+    bool    dead;
 public:
     PlayerShip();
     PlayerShip(const PlayerShip &);
@@ -33,7 +34,7 @@ public:
     void    moveUp(void);
     void    moveDown(void);
     void    getsDamage(int dmg);
-    void    dies(void);
+    bool    isDead(void);
 
     // Display
     void    printShip (WINDOW *win, const PlayerShip &);
