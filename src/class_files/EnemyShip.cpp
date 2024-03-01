@@ -19,9 +19,10 @@ EnemyShip &EnemyShip::operator=(const EnemyShip &p) { (void)p; return *this; }
 
 EnemyShip::~EnemyShip() { delete weap; }
 
-int     EnemyShip::getPositionX(void) { return this->positionX; }
-int     EnemyShip::getPositionY(void) { return this->positionY; }
-int     EnemyShip::getHealth(void) { return this->health; }
+int     EnemyShip::getPositionX(void) { return positionX; }
+int     EnemyShip::getPositionY(void) { return positionY; }
+int     EnemyShip::getHealth(void) { return health; }
+int     EnemyShip::getCount(void) { return count; }
 
 void    EnemyShip::printShip(WINDOW *win) 
 {
@@ -37,13 +38,16 @@ void    EnemyShip::printShip(WINDOW *win)
 }
 
 int     EnemyShip::shootsMissile(void) { 
-    if (time(nullptr) - this->lastShot < 2 || time(nullptr) - this->lastShot < 1 || weap->getAmmo() == 0)
+    if (time(nullptr) - this->lastShot < 2 || time(nullptr) - this->lastShot < 1 || !weap->getAmmo())
         return 0;
-    this->weap->shoots();
-    this->lastShot = time(nullptr);
-    return weap->getDamage();
+    if (std::rand() % 40 == 0) {
+        this->weap->shoots();
+        this->lastShot = time(nullptr);
+        return weap->getDamage();
+    }
+    return 0;
 
- } // XXX
+ }
 
 void    EnemyShip::moveDownRight(void) {
     if (!isDead) {

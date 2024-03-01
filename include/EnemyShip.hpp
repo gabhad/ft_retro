@@ -26,6 +26,7 @@ public:
     int     getPositionX(void);
     int     getPositionY(void);
     int     getHealth(void);
+    int     getCount(void);
     
     void    printShip (WINDOW *win);
 

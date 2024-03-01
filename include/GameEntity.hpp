@@ -59,6 +59,8 @@ public:
     int     returnScore(void);
     void    updateTime(void);
     void    updateScore(int n);
+
+    bool    isGameOver(void);
 };
 
 #endif  // GAME_ENTITY_HPP

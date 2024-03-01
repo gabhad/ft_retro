@@ -103,9 +103,17 @@ void    GameEntity::shoots() {
 
 void GameEntity::enemyShoots(void)
 {
+    int j = 0;
     for (int i = 0; i < 30; i++)
         if (!eShips[i].isDead)
-            eShips[i].shootsMissile();
+            if (int dmg = eShips[i].shootsMissile())
+            {
+                while (eMissile[j].getDamage() > 0)
+                    j++;
+                eMissile[j].setDamage(dmg);
+                eMissile[j].setCoord(getEShipX(i), getEShipY(i) + 1);
+                eMissile[j].setDirection("DOWN");
+            }
 }
 
 void    GameEntity::updateMissiles()
@@ -139,7 +147,8 @@ void    GameEntity::checkMissileCollision(void)
                 if (!eShips[j].isDead
                     && pMissile[i].getMissX() >= eShips[j].getPositionX() - 2 
                     && pMissile[i].getMissX() <= eShips[j].getPositionX() + 2
-                    && pMissile[i].getMissY() == eShips[j].getPositionY() + 1) {
+                    && pMissile[i].getMissY() <= eShips[j].getPositionY() + 1
+                    && pMissile[i].getMissY() >= eShips[j].getPositionY() - 2) {
                         eShips[j].getsDamage(pMissile[i].getDamage());
                         pMissile[i].setDamage(0);
                         updateScore(100);
@@ -161,3 +170,9 @@ int     GameEntity::returnTime(void) { return this->Env->returnTime(); }
 int     GameEntity::returnScore(void) { return this->Env->returnScore(); }
 void    GameEntity::updateTime(void) { this->Env->updateTime(); }
 void    GameEntity::updateScore(int n) { this->Env->updateScore(n); }
+
+bool    GameEntity::isGameOver(void) {
+    if (eShips->getCount() == 0)
+        return 1;
+    return 0;
+}
