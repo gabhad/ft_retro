@@ -157,6 +157,19 @@ void    GameEntity::checkMissileCollision(void)
             }
         }
     }
+    if (time(nullptr) - pShip->getLastDamage() < 2)
+        return;
+    for (int i = 0; i < 50; i++) {
+        if (eMissile[i].getDamage())
+            if (eMissile[i].getMissX() >= pShip->getPositionX() - 2
+                && eMissile[i].getMissX() <= pShip->getPositionX() + 2
+                && eMissile[i].getMissY() >= pShip->getPositionY() - 1
+                && eMissile[i].getMissY() <= pShip->getPositionY() + 2) {
+                    pShip->getsDamage(eMissile[i].getDamage());
+                    eMissile[i].setDamage(0);
+                    updateScore(-300);
+            }
+    }
 }
 
 int     GameEntity::getHealth() { return this->pShip->getHealth(); }
