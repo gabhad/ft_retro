@@ -6,8 +6,8 @@ void    drawBox(GameEntity &Game)
 {
     box(Game.ath, 0, 0);
     box(Game.gameScreen, 0, 0);
-    wrefresh(Game.ath);
-    wrefresh(Game.gameScreen);
+//    wrefresh(Game.ath);
+//    wrefresh(Game.gameScreen);
 }
 void    resize_screen(GameEntity &Game)
 {
@@ -24,8 +24,9 @@ void    resize_screen(GameEntity &Game)
         delwin(Game.gameScreen);
         Game.ath = derwin(stdscr, 3, newCols, 0, 0);
         Game.gameScreen = derwin(stdscr, newLines - 3, newCols, 3, 0);
-        wrefresh(stdscr);    
+        wrefresh(stdscr);
     }
+    drawBox(Game);
 }
 
 void    shipExplosion(GameEntity &Game)
@@ -47,18 +48,24 @@ void    shipExplosion(GameEntity &Game)
         refresh();
         napms(1000);
     }
+    clear();
 }
 
 void    gameLoop(GameEntity &Game)
 {
-        timeout(100);
+        timeout(0);
         time_t  lastMoveTime = time(nullptr);
+        drawBox(Game);
+
         while (1) {
         while (Game.checkSize())
             resize_screen(Game);
-        clear();
-        updateATH(Game);
+        
+        werase(Game.ath);
+        werase(Game.gameScreen);
         drawBox(Game);
+
+        updateATH(Game);
         Game.printShips();
         if (time(nullptr) - lastMoveTime >= 2)
             lastMoveTime = Game.moveEnemies();
@@ -66,16 +73,25 @@ void    gameLoop(GameEntity &Game)
         Game.printMissile();
         collisionCheck(Game);
         Game.updateMissiles();
+
+        wrefresh(Game.ath);
+        wrefresh(Game.gameScreen);
+        refresh();
+
         if (!Game.getHealth()) {
             shipExplosion(Game);
             break;
         }
-        refresh();
 
         int i = getch();
         if (i == 27 || Game.returnTime() < 0 || Game.eShipCount() == 30)
+        {
+            clear();
             break;
+        }
         else if (i != ERR)
             playerAction(Game, i);
+
+        napms(50);
     }
 }

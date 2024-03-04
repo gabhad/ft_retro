@@ -33,7 +33,7 @@ void    Missile::updateMissiles()
     if (this->direction == "UP")
         this->y -= 3;
     else if (this->direction == "DOWN")
-        this->y += 2;
+        this->y += 1;
 }
 
 int     Missile::getDamage() { return damage; }

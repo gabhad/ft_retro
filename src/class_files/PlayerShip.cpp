@@ -55,7 +55,7 @@ bool    PlayerShip::isDead(void) { return dead; }
 
 void    PlayerShip::printShip(WINDOW *win, const PlayerShip &p) 
 {
-    if (time(nullptr) - this->lastDamage < 2)
+    if (time(nullptr) - this->lastDamage < 2 && !dead)
     {
         mvwprintw(win, p.positionY - 1, p.positionX, "*");
         mvwprintw(win, p.positionY - 1, p.positionX + 2, "*");
