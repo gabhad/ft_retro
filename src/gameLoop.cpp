@@ -28,9 +28,30 @@ void    resize_screen(GameEntity &Game)
     }
 }
 
+void    shipExplosion(GameEntity &Game)
+{
+   // timeout(100);
+    time_t  startTime = time(nullptr);
+    while (time(nullptr) - startTime < 5) 
+    {
+        while (Game.checkSize())
+            resize_screen(Game);
+        clear();
+        printElements(Game);
+        drawBox(Game);
+        Game.printShips();
+        mvwprintw(Game.gameScreen, Game.getPShipY() - (time(nullptr) - startTime), Game.getPShipX() - (time(nullptr) - startTime), "*");
+        mvwprintw(Game.gameScreen, Game.getPShipY() - (time(nullptr) - startTime), Game.getPShipX() + (time(nullptr) - startTime), "*");
+        mvwprintw(Game.gameScreen, Game.getPShipY() + (time(nullptr) - startTime), Game.getPShipX() - (time(nullptr) - startTime), "*");
+        mvwprintw(Game.gameScreen, Game.getPShipY() + (time(nullptr) - startTime), Game.getPShipX() + (time(nullptr) - startTime), "*");
+        refresh();
+        napms(1000);
+    }
+}
+
 void    gameLoop(GameEntity &Game)
 {
-        timeout(200);
+        timeout(100);
         time_t  lastMoveTime = time(nullptr);
         while (1) {
         while (Game.checkSize())
@@ -45,9 +66,11 @@ void    gameLoop(GameEntity &Game)
         Game.printMissile();
         collisionCheck(Game);
         Game.updateMissiles();
-        if (!Game.getHealth())
-            void;
-            // XXX coder fonction fin de jeu
+        if (!Game.getHealth()) {
+            shipExplosion(Game);
+            break;
+        }
+        refresh();
 
         int i = getch();
         if (i == 27 || Game.returnTime() < 0 || Game.eShipCount() == 30)

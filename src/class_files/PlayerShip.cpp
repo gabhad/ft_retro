@@ -43,8 +43,11 @@ void    PlayerShip::moveDown(void) {
 
 void    PlayerShip::getsDamage(int dmg) {
         this->health -= dmg;
-    if (this->health <= 0)
+    if (this->health <= 0) {
         dead = 1;
+        name1 = "";
+        name2 = "";
+    }
     lastDamage = time(nullptr);
 }
 

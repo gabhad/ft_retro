@@ -11,7 +11,7 @@ int    endGame(GameEntity &Game)
                 "Felicitations, vous avez marque %d points", Game.returnScore());
         mvprintw(LINES / 2 + 1, COLS / 2 - 30,
                 "Appuyez sur Espace pour rejouer ou Echap pour quitter le jeu.");
-        refresh();
+     //   refresh();
         int i = getch();
         if (i == 27)
             break;

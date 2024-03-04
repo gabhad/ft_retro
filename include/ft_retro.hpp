@@ -6,6 +6,7 @@
 
 void    check_term_size(void);
 void    start_game(void);
+void    printElements(GameEntity &Game);
 void    updateATH(GameEntity &Game);
 void    gameLoop(GameEntity &Game);
 void    playerAction(GameEntity &Game, int i);
