@@ -6,12 +6,11 @@ It executes with the ncurses library, and plays in the terminal with the use of 
 
 It is intended for educational purposes, to display the uses and good practice of an object oriented program.
 
-Update 19.02.24 :
-Next up : missile shooting by player and enemy ships. Design the missile initialization process
+Update 04.03.24 :
+Finished v1. Stable game with all basic functions implemented. Feel free to use and play with.
 
+Future potential updates :
 
-
-Next + : score
 Maybe : add new weapons
-Maybe + : add external objects
+Maybe + : add external objects bonus/malus
 Maybe ++ : add boss fights + level design
